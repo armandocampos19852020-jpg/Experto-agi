@@ -1,0 +1,711 @@
+# ngrok documentation
+
+## Docs
+
+- [Agent SDKs](https://ngrok.com/docs/agent-sdks/index.md): Learn about ngrok Agent SDKs for embedding ngrok directly into your applications using Go, JavaScript, Python, and Rust libraries.
+- [mTLS Termination](https://ngrok.com/docs/agent/agent-mutual-tls-termination.md): Learn how to enable Mutual TLS (mTLS) termination with your ngrok agents.
+- [Agent TLS Termination](https://ngrok.com/docs/agent/agent-tls-termination.md): Secure your traffic with end-to-end encryption by allowing your ngrok agents to terminate TLS.
+- [ngrok Agent API](https://ngrok.com/docs/agent/api.md): The ngrok agent exposes an HTTP API for collecting metrics and managing endpoints.
+- [ngrok Agent Changelog](https://ngrok.com/docs/agent/changelog.md): Learn about changes to the ngrok Agent.
+- [ngrok Agent Command Line Interface (CLI)](https://ngrok.com/docs/agent/cli.md)
+- [ngrok Agent CLI API Commands](https://ngrok.com/docs/agent/cli-api.md)
+- [ngrok Agent Configuration File](https://ngrok.com/docs/agent/config/index.md): Learn about the ngrok agent configuration file for running multiple tunnels simultaneously and configuring advanced settings.
+- [Agent Config Version 2](https://ngrok.com/docs/agent/config/v2.md): Comprehensive reference documentation for ngrok Agent Configuration File version 2, including all configuration options and examples.
+- [Agent Config Version 3](https://ngrok.com/docs/agent/config/v3.md): Reference documentation for ngrok Agent Configuration File version 3, including breaking changes, migration guide, and endpoint definitions.
+- [Connect URLs](https://ngrok.com/docs/agent/connect-url.md): Learn how to customize the connect URL the ngrok agent uses to authenticate access to the ngrok service.
+- [Agent Version Deprecation Notices](https://ngrok.com/docs/agent/deprecation-notices.md): What to do if you received an email about your ngrok agent version being deprecated.
+- [Diagnose](https://ngrok.com/docs/agent/diagnose.md): Learn how to diagnose the ngrok agent's connectivity issues.
+- [ngrok Agent](https://ngrok.com/docs/agent/index.md): The ngrok agent is a lightweight command-line program that forwards traffic from endpoints it creates on the ngrok cloud service to your upstream application services.
+- [Secure Tunnels Overview](https://ngrok.com/docs/agent/overview.md): Learn about ngrok's secure tunnel agent for exposing local services, connecting devices, and creating secure remote access.
+- [SSH Reverse Tunnel](https://ngrok.com/docs/agent/ssh-reverse-tunnel-agent.md): Learn how to deliver ngrok's services using SSH Reverse Tunneling rather than the ngrok agent.
+- [Upgrade to ngrok Agent v3](https://ngrok.com/docs/agent/upgrade-v2-v3.md): Learn the best way to upgrade from ngrok agent v2 to v3.
+- [ngrok Agent Version Support Policy](https://ngrok.com/docs/agent/version-support-policy.md): Learn about ngrok's version support policy including semantic versioning, release cadence, and support periods.
+- [ngrok Agent Web Inspection Interface](https://ngrok.com/docs/agent/web-inspection-interface.md): Learn how to use the ngrok agent's web inspection interface at localhost:4040 to view HTTP requests and responses in real-time.
+- [Changelog](https://ngrok.com/docs/ai-gateway/changelog.md): AI Gateway feature updates and changes.
+- [AI Gateway API Keys](https://ngrok.com/docs/ai-gateway/concepts/api-keys.md): Authenticate requests to your AI Gateway without needing provider accounts.
+- [Bring Your Own Keys](https://ngrok.com/docs/ai-gateway/concepts/bring-your-own-keys.md): Use your own provider API keys with the AI Gateway.
+- [Credits](https://ngrok.com/docs/ai-gateway/concepts/credits.md): Understanding AI Gateway credits, pricing, and balance management.
+- [Custom Providers](https://ngrok.com/docs/ai-gateway/concepts/custom-providers.md): Connect custom endpoints and self-hosted models to the AI Gateway.
+- [Models](https://ngrok.com/docs/ai-gateway/concepts/models.md): Understanding model naming and request formats in the AI Gateway.
+- [Providers](https://ngrok.com/docs/ai-gateway/concepts/providers.md): AI providers available in the ngrok AI Gateway.
+- [Azure OpenAI](https://ngrok.com/docs/ai-gateway/custom-providers/azure-openai.md): Route AI requests to Azure OpenAI Service through the ngrok AI Gateway.
+- [LM Studio](https://ngrok.com/docs/ai-gateway/custom-providers/lm-studio.md): Route AI requests to local LM Studio models through the ngrok AI Gateway.
+- [Ollama](https://ngrok.com/docs/ai-gateway/custom-providers/ollama.md): Route AI requests to local Ollama models through the ngrok AI Gateway.
+- [vLLM](https://ngrok.com/docs/ai-gateway/custom-providers/vllm.md): Route AI requests to vLLM inference servers through the ngrok AI Gateway.
+- [Model Filtering Strategy](https://ngrok.com/docs/ai-gateway/examples/model-filtering.md): Filter and select models based on performance criteria.
+- [Multi-Key Failover](https://ngrok.com/docs/ai-gateway/examples/multi-key-failover.md): Configure multiple provider API keys for automatic failover.
+- [Multi-Provider Failover](https://ngrok.com/docs/ai-gateway/examples/multi-provider-failover.md): Automatically failover between AI providers for maximum reliability.
+- [FAQ](https://ngrok.com/docs/ai-gateway/faq.md): Frequently asked questions about AI Gateway.
+- [Configuring Providers](https://ngrok.com/docs/ai-gateway/guides/configuring-providers.md): How to configure AI providers when using your own provider API keys (BYOK).
+- [Creating Endpoints](https://ngrok.com/docs/ai-gateway/guides/creating-endpoints.md): How to create an AI Gateway endpoint using Cloud Endpoints, Agent Endpoints, or Traffic Policy.
+- [Debugging](https://ngrok.com/docs/ai-gateway/guides/debugging.md): Inspect AI Gateway action results to diagnose request failures and understand routing decisions.
+- [Error Handling](https://ngrok.com/docs/ai-gateway/guides/error-handling.md): Configure failover behavior and error recovery in AI Gateway.
+- [Key Selection & Failover](https://ngrok.com/docs/ai-gateway/guides/key-selection-failover.md): Advanced CEL-based API key selection and multi-key failover strategies for BYOK usage.
+- [Managing Provider Keys](https://ngrok.com/docs/ai-gateway/guides/managing-provider-keys.md): Store, rotate, and manage your own provider API keys for BYOK usage.
+- [Model Selection Strategies](https://ngrok.com/docs/ai-gateway/guides/model-selection-strategies.md): Configure custom strategies for selecting models using CEL expressions.
+- [Modifying Requests](https://ngrok.com/docs/ai-gateway/guides/modifying-requests.md): Learn how to modify requests before they reach providers using built-in fields and find/replace.
+- [Modifying Responses](https://ngrok.com/docs/ai-gateway/guides/modifying-responses.md): Learn how to modify responses using find and replace before they reach clients.
+- [Protecting BYOK Endpoints](https://ngrok.com/docs/ai-gateway/guides/protecting-byok-endpoints.md): Add authorization to your AI Gateway when managing your own provider API keys.
+- [Restricting Model Access](https://ngrok.com/docs/ai-gateway/guides/restricting-access.md): Control which providers and models can be accessed through your gateway.
+- [Securing Your Gateway](https://ngrok.com/docs/ai-gateway/guides/securing-endpoints.md): How AI Gateway API Keys provide built-in authorization for your gateway.
+- [How It Works](https://ngrok.com/docs/ai-gateway/how-it-works.md): Understand the AI Gateway request flow and failover behavior.
+- [Observability Overview](https://ngrok.com/docs/ai-gateway/observability/index.md): Monitor and debug AI Gateway requests.
+- [Log Exporting](https://ngrok.com/docs/ai-gateway/observability/log-exporting.md): Export AI Gateway logs to external systems.
+- [Metrics Reference](https://ngrok.com/docs/ai-gateway/observability/metrics.md): Real-time metrics for intelligent model selection.
+- [Traffic Inspector](https://ngrok.com/docs/ai-gateway/observability/traffic-inspector.md): Debug AI Gateway requests with full request/response visibility.
+- [AI Gateway Overview](https://ngrok.com/docs/ai-gateway/overview.md): Route requests to AI providers with automatic failover, load balancing, and observability.
+- [Anthropic](https://ngrok.com/docs/ai-gateway/providers/anthropic.md): Use Anthropic Claude models through the ngrok AI Gateway.
+- [DeepSeek](https://ngrok.com/docs/ai-gateway/providers/deepseek.md): Use DeepSeek models through the ngrok AI Gateway.
+- [Google](https://ngrok.com/docs/ai-gateway/providers/google.md): Use Google Gemini models through the ngrok AI Gateway.
+- [Groq](https://ngrok.com/docs/ai-gateway/providers/groq.md): Use Groq LPU-accelerated models through the ngrok AI Gateway.
+- [Hyperbolic](https://ngrok.com/docs/ai-gateway/providers/hyperbolic.md): Use Hyperbolic open-source models through the ngrok AI Gateway.
+- [InceptionLabs](https://ngrok.com/docs/ai-gateway/providers/inceptionlabs.md): Use InceptionLabs diffusion language models through the ngrok AI Gateway.
+- [Inference.net](https://ngrok.com/docs/ai-gateway/providers/inference-net.md): Use Inference.net distributed inference through the ngrok AI Gateway.
+- [OpenAI](https://ngrok.com/docs/ai-gateway/providers/openai.md): Use OpenAI models through the ngrok AI Gateway.
+- [OpenRouter](https://ngrok.com/docs/ai-gateway/providers/openrouter.md): Use OpenRouter models through the ngrok AI Gateway.
+- [Quickstart](https://ngrok.com/docs/ai-gateway/quickstart.md): Get your AI Gateway running in minutes.
+- [CEL Functions Reference](https://ngrok.com/docs/ai-gateway/reference/cel-functions.md): Complete reference for CEL functions available in AI Gateway selection strategies.
+- [Configuration Schema](https://ngrok.com/docs/ai-gateway/reference/configuration-schema.md): Complete reference for AI Gateway configuration options.
+- [Error Codes Reference](https://ngrok.com/docs/ai-gateway/reference/error-codes.md): When the AI Gateway encounters an error, it returns an ngrok error code and message to help identify the issue. The full list of AI Gateway error codes and their meanings are listed on this page.
+- [Model Catalog](https://ngrok.com/docs/ai-gateway/reference/model-catalog.md): Built-in providers and models in the AI Gateway.
+- [Anthropic SDK](https://ngrok.com/docs/ai-gateway/sdks/anthropic.md): Use the ngrok AI Gateway with Anthropic's official SDKs.
+- [SDK Integration](https://ngrok.com/docs/ai-gateway/sdks/index.md): Connect your SDK to the ngrok AI Gateway.
+- [LangChain](https://ngrok.com/docs/ai-gateway/sdks/langchain.md): Use the ngrok AI Gateway with LangChain.
+- [OpenAI SDK](https://ngrok.com/docs/ai-gateway/sdks/openai.md): Use the ngrok AI Gateway with OpenAI's official SDKs.
+- [Other SDKs](https://ngrok.com/docs/ai-gateway/sdks/other.md): Use the ngrok AI Gateway with any SDK that supports OpenAI API or Anthropic Claude API format.
+- [TanStack AI](https://ngrok.com/docs/ai-gateway/sdks/tanstack-ai.md): Use the ngrok AI Gateway with TanStack AI.
+- [Vercel AI SDK](https://ngrok.com/docs/ai-gateway/sdks/vercel-ai-sdk.md): Use the ngrok AI Gateway with Vercel's AI SDK.
+- [Create](https://ngrok.com/docs/api-reference/abusereports/create.md): Create a new abuse report to report suspicious or malicious activity on your ngrok endpoints.
+- [Get](https://ngrok.com/docs/api-reference/abusereports/get.md): Retrieve details about a specific abuse report by its unique identifier.
+- [Create](https://ngrok.com/docs/api-reference/agentingresses/create.md): Create a new agent ingress configuration to define how agents connect to the ngrok service.
+- [Delete](https://ngrok.com/docs/api-reference/agentingresses/delete.md): Delete a specific agent ingress configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/agentingresses/get.md): Retrieve details about a specific agent ingress configuration by its unique identifier.
+- [List](https://ngrok.com/docs/api-reference/agentingresses/list.md): List all agent ingress configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/agentingresses/update.md): Update an existing agent ingress configuration with new settings or parameters.
+- [Create](https://ngrok.com/docs/api-reference/apikeys/create.md): Create a new API key for authenticating requests to the ngrok API with specific permissions and scopes.
+- [Delete](https://ngrok.com/docs/api-reference/apikeys/delete.md): Delete a specific API key by its unique identifier, immediately revoking its access.
+- [Get](https://ngrok.com/docs/api-reference/apikeys/get.md): Retrieve details about a specific API key including its permissions and metadata.
+- [List](https://ngrok.com/docs/api-reference/apikeys/list.md): List all API keys in your ngrok account with optional filtering and pagination support.
+- [Update](https://ngrok.com/docs/api-reference/apikeys/update.md): Update an existing API key's permissions, description, or other metadata.
+- [Delete](https://ngrok.com/docs/api-reference/applicationsessions/delete.md): Delete a specific application session by its unique identifier, terminating the session immediately.
+- [Get](https://ngrok.com/docs/api-reference/applicationsessions/get.md): Retrieve details about a specific application session including its status and metadata.
+- [List](https://ngrok.com/docs/api-reference/applicationsessions/list.md): List all application sessions in your ngrok account with optional filtering and pagination.
+- [Delete](https://ngrok.com/docs/api-reference/applicationusers/delete.md): Delete a specific application user by its unique identifier, removing all associated access.
+- [Get](https://ngrok.com/docs/api-reference/applicationusers/get.md): Retrieve details about a specific application user including their roles and permissions.
+- [List](https://ngrok.com/docs/api-reference/applicationusers/list.md): List all application users in your ngrok account with optional filtering and pagination support.
+- [Create](https://ngrok.com/docs/api-reference/botusers/create.md): Create a new bot user for programmatic API access. Note: Bot Users are deprecated in favor of Service Users.
+- [Delete](https://ngrok.com/docs/api-reference/botusers/delete.md): Delete a specific bot user by its unique identifier. Note: Bot Users are deprecated in favor of Service Users.
+- [Get](https://ngrok.com/docs/api-reference/botusers/get.md): Retrieve details about a specific bot user. Note: Bot Users are deprecated in favor of Service Users.
+- [List](https://ngrok.com/docs/api-reference/botusers/list.md): List all bot users in your ngrok account. Note: Bot Users are deprecated in favor of Service Users.
+- [Update](https://ngrok.com/docs/api-reference/botusers/update.md): Update an existing bot user's configuration. Note: Bot Users are deprecated in favor of Service Users.
+- [Create](https://ngrok.com/docs/api-reference/certificateauthorities/create.md): Create a new certificate authority configuration for custom TLS certificate management in ngrok.
+- [Delete](https://ngrok.com/docs/api-reference/certificateauthorities/delete.md): Delete a specific certificate authority configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/certificateauthorities/get.md): Retrieve details about a specific certificate authority configuration including its certificates.
+- [List](https://ngrok.com/docs/api-reference/certificateauthorities/list.md): List all certificate authority configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/certificateauthorities/update.md): Update an existing certificate authority configuration with new settings or certificates.
+- [Create](https://ngrok.com/docs/api-reference/credentials/create.md): Create a new credential for authenticating connections to credential-backed backends.
+- [Delete](https://ngrok.com/docs/api-reference/credentials/delete.md): Delete a specific credential by its unique identifier, revoking its access immediately.
+- [Get](https://ngrok.com/docs/api-reference/credentials/get.md): Retrieve details about a specific credential including its type and associated backends.
+- [List](https://ngrok.com/docs/api-reference/credentials/list.md): List all credentials in your ngrok account with optional filtering and pagination support.
+- [Update](https://ngrok.com/docs/api-reference/credentials/update.md): Update an existing credential's configuration, authentication details, or metadata.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutebackendmodule/delete.md): Remove the backend module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutebackendmodule/get.md): Retrieve the backend module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutebackendmodule/replace.md): Replace or configure the backend module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutecircuitbreakermodule/delete.md): Remove the circuit breaker module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutecircuitbreakermodule/get.md): Retrieve the circuit breaker module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutecircuitbreakermodule/replace.md): Replace or configure the circuit breaker module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutecompressionmodule/delete.md): Remove the compression module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutecompressionmodule/get.md): Retrieve the compression module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutecompressionmodule/replace.md): Replace or configure the compression module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouteiprestrictionmodule/delete.md): Remove the IP restriction module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouteiprestrictionmodule/get.md): Retrieve the IP restriction module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouteiprestrictionmodule/replace.md): Replace or configure the IP restriction module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouteoauthmodule/delete.md): Remove the OAuth authentication module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouteoauthmodule/get.md): Retrieve the OAuth authentication module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouteoauthmodule/replace.md): Replace or configure the OAuth authentication module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouteoidcmodule/delete.md): Remove the OIDC authentication module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouteoidcmodule/get.md): Retrieve the OIDC authentication module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouteoidcmodule/replace.md): Replace or configure the OIDC authentication module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouterequestheadersmodule/delete.md): Remove the request headers module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouterequestheadersmodule/get.md): Retrieve the request headers module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouterequestheadersmodule/replace.md): Replace or configure the request headers module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouteresponseheadersmodule/delete.md): Remove the response headers module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouteresponseheadersmodule/get.md): Retrieve the response headers module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouteresponseheadersmodule/replace.md): Replace or configure the response headers module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutesamlmodule/delete.md): Remove the SAML authentication module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutesamlmodule/get.md): Retrieve the SAML authentication module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutesamlmodule/replace.md): Replace or configure the SAML authentication module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutetrafficpolicymodule/delete.md): Remove the traffic policy module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutetrafficpolicymodule/get.md): Retrieve the traffic policy module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutetrafficpolicymodule/replace.md): Replace or configure the traffic policy module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgerouteuseragentfiltermodule/delete.md): Remove the user agent filter module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgerouteuseragentfiltermodule/get.md): Retrieve the user agent filter module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgerouteuseragentfiltermodule/replace.md): Replace or configure the user agent filter module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutewebhookverificationmodule/delete.md): Remove the webhook verification module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutewebhookverificationmodule/get.md): Retrieve the webhook verification module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutewebhookverificationmodule/replace.md): Replace or configure the webhook verification module for a specific HTTPS edge route.
+- [Delete](https://ngrok.com/docs/api-reference/edgeroutewebsockettcpconvertermodule/delete.md): Remove the WebSocket to TCP converter module configuration from a specific HTTPS edge route.
+- [Get](https://ngrok.com/docs/api-reference/edgeroutewebsockettcpconvertermodule/get.md): Retrieve the WebSocket to TCP converter module configuration for a specific HTTPS edge route.
+- [Replace](https://ngrok.com/docs/api-reference/edgeroutewebsockettcpconvertermodule/replace.md): Replace or configure the WebSocket to TCP converter module for a specific HTTPS edge route.
+- [Create](https://ngrok.com/docs/api-reference/edgeshttps/create.md): Create a new HTTPS edge configuration for routing and managing HTTPS traffic with advanced features.
+- [Delete](https://ngrok.com/docs/api-reference/edgeshttps/delete.md): Delete a specific HTTPS edge configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/edgeshttps/get.md): Retrieve details about a specific HTTPS edge configuration including its routes and modules.
+- [List](https://ngrok.com/docs/api-reference/edgeshttps/list.md): List all HTTPS edge configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/edgeshttps/update.md): Update an existing HTTPS edge configuration with new settings, domains, or modules.
+- [Create](https://ngrok.com/docs/api-reference/edgeshttpsroutes/create.md): Create a new route on a specific HTTPS edge for matching and processing incoming requests.
+- [Delete](https://ngrok.com/docs/api-reference/edgeshttpsroutes/delete.md): Delete a specific route from an HTTPS edge by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/edgeshttpsroutes/get.md): Retrieve details about a specific route on an HTTPS edge including its match rules and modules.
+- [Update](https://ngrok.com/docs/api-reference/edgeshttpsroutes/update.md): Update an existing route on an HTTPS edge with new match rules or module configurations.
+- [Create](https://ngrok.com/docs/api-reference/edgestcp/create.md): Create a new TCP edge configuration for routing and managing raw TCP traffic connections.
+- [Delete](https://ngrok.com/docs/api-reference/edgestcp/delete.md): Delete a specific TCP edge configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/edgestcp/get.md): Retrieve details about a specific TCP edge configuration including its backend and settings.
+- [List](https://ngrok.com/docs/api-reference/edgestcp/list.md): List all TCP edge configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/edgestcp/update.md): Update an existing TCP edge configuration with new backend settings or connection parameters.
+- [Create](https://ngrok.com/docs/api-reference/edgestls/create.md): Create a new TLS edge configuration for routing and managing TLS-terminated traffic.
+- [Delete](https://ngrok.com/docs/api-reference/edgestls/delete.md): Delete a specific TLS edge configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/edgestls/get.md): Retrieve details about a specific TLS edge configuration including its certificates and backend.
+- [List](https://ngrok.com/docs/api-reference/edgestls/list.md): List all TLS edge configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/edgestls/update.md): Update an existing TLS edge configuration with new certificates, backend settings, or modules.
+- [Create](https://ngrok.com/docs/api-reference/endpoints/create.md): Create a new agent endpoint configuration for connecting local applications to the ngrok service.
+- [Delete](https://ngrok.com/docs/api-reference/endpoints/delete.md): Delete a specific agent endpoint configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/endpoints/get.md): Retrieve details about a specific agent endpoint configuration including its status and settings.
+- [List](https://ngrok.com/docs/api-reference/endpoints/list.md): List all agent endpoint configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/endpoints/update.md): Update an existing agent endpoint configuration with new settings, labels, or metadata.
+- [Create](https://ngrok.com/docs/api-reference/eventdestinations/create.md): Create a new event destination configuration for receiving ngrok platform events and notifications.
+- [Delete](https://ngrok.com/docs/api-reference/eventdestinations/delete.md): Delete a specific event destination configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/eventdestinations/get.md): Retrieve details about a specific event destination configuration including its target and filters.
+- [List](https://ngrok.com/docs/api-reference/eventdestinations/list.md): List all event destination configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/eventdestinations/update.md): Update an existing event destination configuration with new target settings or event filters.
+- [Create](https://ngrok.com/docs/api-reference/eventsources/create.md): Add a new event source to an existing event subscription for receiving specific event types.
+- [Delete](https://ngrok.com/docs/api-reference/eventsources/delete.md): Remove a specific event source from an event subscription by its type.
+- [Get](https://ngrok.com/docs/api-reference/eventsources/get.md): Retrieve details about a specific event source within an event subscription.
+- [List](https://ngrok.com/docs/api-reference/eventsources/list.md): List all event sources configured for a specific event subscription.
+- [Update](https://ngrok.com/docs/api-reference/eventsources/update.md): Update an existing event source configuration within an event subscription.
+- [Create](https://ngrok.com/docs/api-reference/eventsubscriptions/create.md): Create a new event subscription for receiving and processing ngrok platform events.
+- [Delete](https://ngrok.com/docs/api-reference/eventsubscriptions/delete.md): Delete a specific event subscription by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/eventsubscriptions/get.md): Retrieve details about a specific event subscription including its sources and destinations.
+- [List](https://ngrok.com/docs/api-reference/eventsubscriptions/list.md): List all event subscriptions in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/eventsubscriptions/update.md): Update an existing event subscription with new sources, destinations, or configuration.
+- [Create](https://ngrok.com/docs/api-reference/failoverbackends/create.md): Create a new failover backend for automatically switching between primary and secondary backends based on health.
+- [Delete](https://ngrok.com/docs/api-reference/failoverbackends/delete.md): Delete a specific failover backend configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/failoverbackends/get.md): Retrieve details about a specific failover backend including its primary and secondary backends.
+- [List](https://ngrok.com/docs/api-reference/failoverbackends/list.md): List all failover backend configurations in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/failoverbackends/update.md): Update an existing failover backend with new primary or secondary backend configurations.
+- [Create](https://ngrok.com/docs/api-reference/httpresponsebackends/create.md): Create a new HTTP response backend for returning custom HTTP responses without forwarding requests.
+- [Delete](https://ngrok.com/docs/api-reference/httpresponsebackends/delete.md): Delete a specific HTTP response backend configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/httpresponsebackends/get.md): Retrieve details about a specific HTTP response backend including its response configuration.
+- [List](https://ngrok.com/docs/api-reference/httpresponsebackends/list.md): List all HTTP response backend configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/httpresponsebackends/update.md): Update an existing HTTP response backend with new response settings or metadata.
+- [Delete](https://ngrok.com/docs/api-reference/httpsedgemutualtlsmodule/delete.md): Remove the mutual TLS module configuration from a specific HTTPS edge.
+- [Get](https://ngrok.com/docs/api-reference/httpsedgemutualtlsmodule/get.md): Retrieve the mutual TLS module configuration for a specific HTTPS edge.
+- [Replace](https://ngrok.com/docs/api-reference/httpsedgemutualtlsmodule/replace.md): Replace or configure the mutual TLS module for a specific HTTPS edge.
+- [Delete](https://ngrok.com/docs/api-reference/httpsedgetlsterminationmodule/delete.md): Remove the TLS termination module configuration from a specific HTTPS edge.
+- [Get](https://ngrok.com/docs/api-reference/httpsedgetlsterminationmodule/get.md): Retrieve the TLS termination module configuration for a specific HTTPS edge.
+- [Replace](https://ngrok.com/docs/api-reference/httpsedgetlsterminationmodule/replace.md): Replace or configure the TLS termination module for a specific HTTPS edge.
+- [Create](https://ngrok.com/docs/api-reference/ippolicies/create.md): Create a new IP policy for controlling access based on IP address allowlists or denylists.
+- [Delete](https://ngrok.com/docs/api-reference/ippolicies/delete.md): Delete a specific IP policy by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/ippolicies/get.md): Retrieve details about a specific IP policy including its rules and associated resources.
+- [List](https://ngrok.com/docs/api-reference/ippolicies/list.md): List all IP policies in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/ippolicies/update.md): Update an existing IP policy with new rules, description, or metadata.
+- [Create](https://ngrok.com/docs/api-reference/ippolicyrules/create.md): Create a new IP policy rule to add an IP address or CIDR block to an IP policy.
+- [Delete](https://ngrok.com/docs/api-reference/ippolicyrules/delete.md): Delete a specific IP policy rule by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/ippolicyrules/get.md): Retrieve details about a specific IP policy rule including its IP address or CIDR block.
+- [List](https://ngrok.com/docs/api-reference/ippolicyrules/list.md): List all IP policy rules in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/ippolicyrules/update.md): Update an existing IP policy rule with a new IP address or CIDR block.
+- [Create](https://ngrok.com/docs/api-reference/iprestrictions/create.md): Create a new IP restriction configuration for limiting access to specific IP addresses or ranges.
+- [Delete](https://ngrok.com/docs/api-reference/iprestrictions/delete.md): Delete a specific IP restriction configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/iprestrictions/get.md): Retrieve details about a specific IP restriction configuration including its allowed IPs.
+- [List](https://ngrok.com/docs/api-reference/iprestrictions/list.md): List all IP restriction configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/iprestrictions/update.md): Update an existing IP restriction configuration with new allowed IP addresses or ranges.
+- [Kubernetes Operators](https://ngrok.com/docs/api-reference/kubernetes-operators.md): API reference documentation for Kubernetes Operator endpoints used by the ngrok Kubernetes Operator to manage operator state.
+- [Create](https://ngrok.com/docs/api-reference/reservedaddrs/create.md): Reserve a static IP address for use with your ngrok endpoints and edges.
+- [Delete](https://ngrok.com/docs/api-reference/reservedaddrs/delete.md): Release a reserved static IP address by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/reservedaddrs/get.md): Retrieve details about a specific reserved static IP address including its status and usage.
+- [List](https://ngrok.com/docs/api-reference/reservedaddrs/list.md): List all reserved static IP addresses in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/reservedaddrs/update.md): Update an existing reserved static IP address configuration or metadata.
+- [Create](https://ngrok.com/docs/api-reference/reserveddomains/create.md): Reserve a custom domain for use with your ngrok endpoints and edges.
+- [Delete](https://ngrok.com/docs/api-reference/reserveddomains/delete.md): Release a reserved custom domain by its unique identifier.
+- [DeleteCertificate](https://ngrok.com/docs/api-reference/reserveddomains/deletecertificate.md): Delete the TLS certificate associated with a specific reserved domain.
+- [DeleteCertificateManagementPolicy](https://ngrok.com/docs/api-reference/reserveddomains/deletecertificatemanagementpolicy.md): Remove the certificate management policy from a specific reserved domain.
+- [Get](https://ngrok.com/docs/api-reference/reserveddomains/get.md): Retrieve details about a specific reserved domain including its certificate and DNS configuration.
+- [List](https://ngrok.com/docs/api-reference/reserveddomains/list.md): List all reserved custom domains in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/reserveddomains/update.md): Update an existing reserved domain configuration including certificate management settings.
+- [Create](https://ngrok.com/docs/api-reference/secrets/create.md): Create a new vault secret for securely storing sensitive values used in ngrok configurations.
+- [Delete](https://ngrok.com/docs/api-reference/secrets/delete.md): Delete a specific vault secret by its unique identifier, permanently removing the stored value.
+- [Get](https://ngrok.com/docs/api-reference/secrets/get.md): Retrieve metadata about a specific vault secret. The secret value itself is never returned.
+- [List](https://ngrok.com/docs/api-reference/secrets/list.md): List all vault secrets in your ngrok account with optional filtering and pagination support.
+- [Update](https://ngrok.com/docs/api-reference/secrets/update.md): Update an existing vault secret with a new value or modify its metadata.
+- [Service Users (Bot Users)](https://ngrok.com/docs/api-reference/service-users.md): Service Users API reference.
+- [Create](https://ngrok.com/docs/api-reference/sshcertificateauthorities/create.md): Create a new SSH certificate authority for signing SSH host and user certificates.
+- [Delete](https://ngrok.com/docs/api-reference/sshcertificateauthorities/delete.md): Delete a specific SSH certificate authority by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/sshcertificateauthorities/get.md): Retrieve details about a specific SSH certificate authority including its public key.
+- [List](https://ngrok.com/docs/api-reference/sshcertificateauthorities/list.md): List all SSH certificate authorities in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/sshcertificateauthorities/update.md): Update an existing SSH certificate authority with new metadata or description.
+- [Create](https://ngrok.com/docs/api-reference/sshcredentials/create.md): Create a new SSH credential for authenticating connections to SSH backends.
+- [Delete](https://ngrok.com/docs/api-reference/sshcredentials/delete.md): Delete a specific SSH credential by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/sshcredentials/get.md): Retrieve details about a specific SSH credential including its username and key type.
+- [List](https://ngrok.com/docs/api-reference/sshcredentials/list.md): List all SSH credentials in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/sshcredentials/update.md): Update an existing SSH credential with new private key or metadata.
+- [Create](https://ngrok.com/docs/api-reference/sshhostcertificates/create.md): Create a new SSH host certificate for authenticating SSH server connections.
+- [Delete](https://ngrok.com/docs/api-reference/sshhostcertificates/delete.md): Delete a specific SSH host certificate by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/sshhostcertificates/get.md): Retrieve details about a specific SSH host certificate including its principals and validity.
+- [List](https://ngrok.com/docs/api-reference/sshhostcertificates/list.md): List all SSH host certificates in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/sshhostcertificates/update.md): Update an existing SSH host certificate with new principals or validity period.
+- [Create](https://ngrok.com/docs/api-reference/sshusercertificates/create.md): Create a new SSH user certificate for authenticating SSH client connections.
+- [Delete](https://ngrok.com/docs/api-reference/sshusercertificates/delete.md): Delete a specific SSH user certificate by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/sshusercertificates/get.md): Retrieve details about a specific SSH user certificate including its principals and validity.
+- [List](https://ngrok.com/docs/api-reference/sshusercertificates/list.md): List all SSH user certificates in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/sshusercertificates/update.md): Update an existing SSH user certificate with new principals or validity period.
+- [Create](https://ngrok.com/docs/api-reference/staticbackends/create.md): Create a new static backend for forwarding traffic to a fixed upstream server address.
+- [Delete](https://ngrok.com/docs/api-reference/staticbackends/delete.md): Delete a specific static backend configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/staticbackends/get.md): Retrieve details about a specific static backend including its upstream address configuration.
+- [List](https://ngrok.com/docs/api-reference/staticbackends/list.md): List all static backend configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/staticbackends/update.md): Update an existing static backend with a new upstream address or configuration.
+- [Delete](https://ngrok.com/docs/api-reference/tcpedgebackendmodule/delete.md): Remove the backend module configuration from a specific TCP edge.
+- [Get](https://ngrok.com/docs/api-reference/tcpedgebackendmodule/get.md): Retrieve the backend module configuration for a specific TCP edge.
+- [Replace](https://ngrok.com/docs/api-reference/tcpedgebackendmodule/replace.md): Replace or configure the backend module for a specific TCP edge.
+- [Delete](https://ngrok.com/docs/api-reference/tcpedgeiprestrictionmodule/delete.md): Remove the IP restriction module configuration from a specific TCP edge.
+- [Get](https://ngrok.com/docs/api-reference/tcpedgeiprestrictionmodule/get.md): Retrieve the IP restriction module configuration for a specific TCP edge.
+- [Replace](https://ngrok.com/docs/api-reference/tcpedgeiprestrictionmodule/replace.md): Replace or configure the IP restriction module for a specific TCP edge.
+- [Delete](https://ngrok.com/docs/api-reference/tcpedgetrafficpolicymodule/delete.md): Remove the traffic policy module configuration from a specific TCP edge.
+- [Get](https://ngrok.com/docs/api-reference/tcpedgetrafficpolicymodule/get.md): Retrieve the traffic policy module configuration for a specific TCP edge.
+- [Replace](https://ngrok.com/docs/api-reference/tcpedgetrafficpolicymodule/replace.md): Replace or configure the traffic policy module for a specific TCP edge.
+- [Create](https://ngrok.com/docs/api-reference/tlscertificates/create.md): Upload a new TLS certificate for use with your ngrok edges and reserved domains.
+- [Delete](https://ngrok.com/docs/api-reference/tlscertificates/delete.md): Delete a specific TLS certificate by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/tlscertificates/get.md): Retrieve details about a specific TLS certificate including its domains and expiration date.
+- [List](https://ngrok.com/docs/api-reference/tlscertificates/list.md): List all TLS certificates in your ngrok account with optional filtering and pagination.
+- [Update](https://ngrok.com/docs/api-reference/tlscertificates/update.md): Update an existing TLS certificate with new certificate data or private key.
+- [Delete](https://ngrok.com/docs/api-reference/tlsedgebackendmodule/delete.md): Remove the backend module configuration from a specific TLS edge.
+- [Get](https://ngrok.com/docs/api-reference/tlsedgebackendmodule/get.md): Retrieve the backend module configuration for a specific TLS edge.
+- [Replace](https://ngrok.com/docs/api-reference/tlsedgebackendmodule/replace.md): Replace or configure the backend module for a specific TLS edge.
+- [Delete](https://ngrok.com/docs/api-reference/tlsedgeiprestrictionmodule/delete.md): Remove the IP restriction module configuration from a specific TLS edge.
+- [Get](https://ngrok.com/docs/api-reference/tlsedgeiprestrictionmodule/get.md): Retrieve the IP restriction module configuration for a specific TLS edge.
+- [Replace](https://ngrok.com/docs/api-reference/tlsedgeiprestrictionmodule/replace.md): Replace or configure the IP restriction module for a specific TLS edge.
+- [Delete](https://ngrok.com/docs/api-reference/tlsedgemutualtlsmodule/delete.md): Remove the mutual TLS module configuration from a specific TLS edge.
+- [Get](https://ngrok.com/docs/api-reference/tlsedgemutualtlsmodule/get.md): Retrieve the mutual TLS module configuration for a specific TLS edge.
+- [Replace](https://ngrok.com/docs/api-reference/tlsedgemutualtlsmodule/replace.md): Replace or configure the mutual TLS module for a specific TLS edge.
+- [Delete](https://ngrok.com/docs/api-reference/tlsedgetlsterminationmodule/delete.md): Remove the TLS termination module configuration from a specific TLS edge.
+- [Get](https://ngrok.com/docs/api-reference/tlsedgetlsterminationmodule/get.md): Retrieve the TLS termination module configuration for a specific TLS edge.
+- [Replace](https://ngrok.com/docs/api-reference/tlsedgetlsterminationmodule/replace.md): Replace or configure the TLS termination module for a specific TLS edge.
+- [Delete](https://ngrok.com/docs/api-reference/tlsedgetrafficpolicymodule/delete.md): Remove the traffic policy module configuration from a specific TLS edge.
+- [Get](https://ngrok.com/docs/api-reference/tlsedgetrafficpolicymodule/get.md): Retrieve the traffic policy module configuration for a specific TLS edge.
+- [Replace](https://ngrok.com/docs/api-reference/tlsedgetrafficpolicymodule/replace.md): Replace or configure the traffic policy module for a specific TLS edge.
+- [Create](https://ngrok.com/docs/api-reference/tunnelgroupbackends/create.md): Create a new tunnel group backend for load balancing across multiple agent endpoints.
+- [Delete](https://ngrok.com/docs/api-reference/tunnelgroupbackends/delete.md): Delete a specific tunnel group backend configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/tunnelgroupbackends/get.md): Retrieve details about a specific tunnel group backend including its member endpoints.
+- [List](https://ngrok.com/docs/api-reference/tunnelgroupbackends/list.md): List all tunnel group backend configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/tunnelgroupbackends/update.md): Update an existing tunnel group backend with new member endpoints or load balancing settings.
+- [Get](https://ngrok.com/docs/api-reference/tunnels/get.md): Retrieve details about a specific tunnel. Note: The Tunnels endpoint is deprecated in favor of Endpoints.
+- [List](https://ngrok.com/docs/api-reference/tunnels/list.md): List all tunnels in your ngrok account. Note: The Tunnels endpoint is deprecated in favor of Endpoints.
+- [Get](https://ngrok.com/docs/api-reference/tunnelsessions/get.md): Retrieve details about a specific tunnel session including its status and connection information.
+- [List](https://ngrok.com/docs/api-reference/tunnelsessions/list.md): List all tunnel sessions in your ngrok account with optional filtering and pagination.
+- [Restart](https://ngrok.com/docs/api-reference/tunnelsessions/restart.md): Restart a specific tunnel session, re-establishing the connection to the ngrok service.
+- [Stop](https://ngrok.com/docs/api-reference/tunnelsessions/stop.md): Stop a specific tunnel session, terminating the connection to the ngrok service.
+- [Update](https://ngrok.com/docs/api-reference/tunnelsessions/update.md): Update a specific tunnel session with new configuration or metadata.
+- [Create](https://ngrok.com/docs/api-reference/vaults/create.md): Create a new vault for securely storing and managing secrets used in ngrok configurations.
+- [Delete](https://ngrok.com/docs/api-reference/vaults/delete.md): Delete a specific vault by its unique identifier, removing all associated secrets.
+- [Get](https://ngrok.com/docs/api-reference/vaults/get.md): Retrieve details about a specific vault including its metadata and associated secrets count.
+- [List](https://ngrok.com/docs/api-reference/vaults/list.md): List all vaults in your ngrok account with optional filtering and pagination support.
+- [Update](https://ngrok.com/docs/api-reference/vaults/update.md): Update an existing vault with new metadata, description, or configuration settings.
+- [Create](https://ngrok.com/docs/api-reference/weightedbackends/create.md): Create a new weighted backend for distributing traffic across multiple backends based on weights.
+- [Delete](https://ngrok.com/docs/api-reference/weightedbackends/delete.md): Delete a specific weighted backend configuration by its unique identifier.
+- [Get](https://ngrok.com/docs/api-reference/weightedbackends/get.md): Retrieve details about a specific weighted backend including its member backends and weights.
+- [List](https://ngrok.com/docs/api-reference/weightedbackends/list.md): List all weighted backend configurations in your ngrok account with optional filtering.
+- [Update](https://ngrok.com/docs/api-reference/weightedbackends/update.md): Update an existing weighted backend with new member backends or weight distributions.
+- [API Filtering](https://ngrok.com/docs/api/api-filtering.md): Learn how to use API Filtering to make operational tooling faster and more precise.
+- [ngrok API Overview](https://ngrok.com/docs/api/index.md): Learn about the ngrok REST API for programmatic access to all ngrok resources including endpoints, domains, and configurations.
+- [Errors](https://ngrok.com/docs/errors/index.md)
+- [Errors Reference](https://ngrok.com/docs/errors/reference.md)
+- [FAQ](https://ngrok.com/docs/faq/index.md): Frequently asked questions about ngrok including status page, payment methods, security, and platform features.
+- [Cloud Endpoints Quickstart](https://ngrok.com/docs/getting-started/cloud-endpoints-quickstart.md): Set up your first ngrok Cloud Endpoint to start managing traffic to your services.
+- [Go SDK Quickstart](https://ngrok.com/docs/getting-started/go.md): Learn how to get started with the ngrok Go SDK to create secure tunnels from your Go applications to the internet.
+- [Agent CLI Quickstart](https://ngrok.com/docs/getting-started/index.md): Learn how to get started with ngrok Agent CLI to create secure tunnels from your local applications to the internet.
+- [JavaScript SDK Quickstart](https://ngrok.com/docs/getting-started/javascript.md): Learn how to get started with the ngrok JavaScript SDK to create secure tunnels from your Node.js applications to the internet.
+- [Kubernetes Custom Resources Quickstart](https://ngrok.com/docs/getting-started/kubernetes/crds.md): Leverage ngrok’s custom Kubernetes CRDs for the simplest path, with the least amount of YAML, to exposing your Kubernetes services to the public internet.
+- [Kubernetes Endpoints Quickstart](https://ngrok.com/docs/getting-started/kubernetes/endpoints.md): Connect any API or app to your Kubernetes clusters for local service projection, cross-cluster communication, and much more.
+- [Kubernetes Gateway API Quickstart](https://ngrok.com/docs/getting-started/kubernetes/gateway-api.md): Use ngrok with the Kubernetes Gateway API for advanced routing, policy control, and future-proof ingress configuration.
+- [Kubernetes Ingress Quickstart](https://ngrok.com/docs/getting-started/kubernetes/ingress.md): Learn how to get started with the ngrok Kubernetes Operator to create secure tunnels from your Kubernetes clusters to the internet.
+- [Python SDK Quickstart](https://ngrok.com/docs/getting-started/python.md): Learn how to get started with the ngrok Python SDK to create secure tunnels from your Python applications to the internet.
+- [Rust SDK Quickstart](https://ngrok.com/docs/getting-started/rust.md): Learn how to get started with the ngrok Rust SDK to create secure tunnels from your Rust applications to the internet.
+- [Glossary of Terms](https://ngrok.com/docs/glossary.md): A glossary of technical terms used in ngrok's documentation.
+- [Get started with ngrok's API gateway](https://ngrok.com/docs/guides/api-gateway/get-started.md): Learn how to set up ngrok as an API gateway using a Cloud Endpoint that forwards traffic to internal Agent Endpoints with Traffic Policy.
+- [Using Datadog](https://ngrok.com/docs/guides/api-gateway/monitor-ngrok.md): Learn how to observe your API gateway and the traffic passing through it to debug, create monitoring dashboards, and set alerts in Datadog.
+- [Deploy a multicloud API gateway](https://ngrok.com/docs/guides/api-gateway/multicloud.md): In this tutorial, you'll learn how to load balance API services across multiple clouds and apply common multicloud traffic patterns.
+- [Configure Secure Access to Remote IoT Devices](https://ngrok.com/docs/guides/device-gateway/agent.md): Learn how to use ngrok to remotely access IoT devices and services. Connect remotely without VPN or SSH.
+- [Install ngrok on Linux (ARM64)](https://ngrok.com/docs/guides/device-gateway/arm64.md): Learn how to install ngrok on any Linux ARM64 device to tunnel traffic to your upstream services or remotely administer it.
+- [Install ngrok on Linux](https://ngrok.com/docs/guides/device-gateway/linux.md): Learn how to install ngrok on a remote Linux device to provide secure access and management.
+- [Install ngrok on Raspberry Pi](https://ngrok.com/docs/guides/device-gateway/raspberry-pi.md): Learn how to install ngrok on a Raspberry Pi running Linux to provide secure remote access and management.
+- [Install ngrok on Raspberry Pi OS (formerly Raspbian)](https://ngrok.com/docs/guides/device-gateway/raspbian.md): Learn how to install ngrok on a Raspberry Pi OS (formerly Raspbian) to provide secure remote access and management.
+- [Connect to Devices Using the Python SDK](https://ngrok.com/docs/guides/device-gateway/sdk.md): Connect to devices or your device gateway by embedding connectivity directly into your application with the Python SDK.
+- [Install ngrok on a remote Windows device](https://ngrok.com/docs/guides/device-gateway/windows.md): Learn how to install ngrok on a remote Windows device to provide secure access and management.
+- [Secure your applications with OAuth 2.0](https://ngrok.com/docs/guides/identity-aware-proxy/securing-with-oauth.md): Learn how to secure your ngrok endpoints with OAuth 2.0.
+- [Guides Overview](https://ngrok.com/docs/guides/index.md): Explore practical guides to help you integrate ngrok into your workflow.
+- [Running ngrok Behind a Corporate Firewall](https://ngrok.com/docs/guides/running-behind-firewalls.md): Learn some troubleshooting and configuration tips for run ngrok behind a corporate firewall.
+- [Setting up HIPAA-compliant ngrok services](https://ngrok.com/docs/guides/security-dev-productivity/hipaa-compliance.md): Read ngrok's recommendations for setting up ngrok services in a HIPAA-compliant manner.
+- [Best security practices for developer productivity](https://ngrok.com/docs/guides/security-dev-productivity/index.md): Learn the best practices for developing securely with ngrok.
+- [Security Quick Wins](https://ngrok.com/docs/guides/security-dev-productivity/securing-your-tunnels.md): Learn some quick wins that will help you use ngrok more securely.
+- [Share Local APIs](https://ngrok.com/docs/guides/share-localhost/apis.md): Share your local API with teammates or external consumers for testing and collaboration without deploying.
+- [Authentication](https://ngrok.com/docs/guides/share-localhost/auth.md): Add authentication to your ngrok endpoints to control who can access your locally shared applications.
+- [Inspect Traffic and Replay Requests](https://ngrok.com/docs/guides/share-localhost/inspection.md): Inspect and replay HTTP requests and responses with ngrok's Traffic Inspector to speed up debugging and development.
+- [Test Mobile Apps Locally](https://ngrok.com/docs/guides/share-localhost/mobile.md): Use ngrok to connect your mobile app to a local backend for testing and development without deploying.
+- [Share Localhost Overview](https://ngrok.com/docs/guides/share-localhost/overview.md): Use ngrok to instantly share your local development server with anyone on the internet for demos, testing, and collaboration.
+- [Share Localhost Quickstart](https://ngrok.com/docs/guides/share-localhost/quickstart.md): Get your local app online and shareable in minutes using the ngrok Agent CLI.
+- [Network Security](https://ngrok.com/docs/guides/share-localhost/security.md): Control access to your ngrok endpoints with IP restrictions, mTLS, and other network-level security controls.
+- [Secure Tunnels](https://ngrok.com/docs/guides/share-localhost/tunnels.md): Learn how ngrok creates encrypted tunnels between the internet and your local development machine.
+- [Test Webhooks Locally](https://ngrok.com/docs/guides/share-localhost/webhooks.md): Use ngrok to receive webhook callbacks from third-party services directly on your local development machine.
+- [Install ngrok as a Background Service](https://ngrok.com/docs/guides/site-to-site-connectivity/background-service.md): Install ngrok as a service so it stays running.
+- [Set Up a Custom Connect URL](https://ngrok.com/docs/guides/site-to-site-connectivity/custom-connect-url.md): Use your own domain for connections (white label).
+- [Securely connect to remote customer networks from your K8s cluster](https://ngrok.com/docs/guides/site-to-site-connectivity/customer-networks.md): Use the ngrok Kubernetes Operator for secure access to private services in customer networks.
+- [Why Your Vendor Uses ngrok](https://ngrok.com/docs/guides/site-to-site-connectivity/end-customers.md): Why your vendor has requested you install ngrok for site-to-site connectivity, how it works, and why it's secure.
+- [Site-to-Site Connectivity FAQ](https://ngrok.com/docs/guides/site-to-site-connectivity/faq.md): Answers to common questions about setting up and managing site-to-site connectivity with ngrok.
+- [Connect to Your Customer's Network](https://ngrok.com/docs/guides/site-to-site-connectivity/index.md): Follow an in-depth tutorial to learn how to use ngrok to remotely access APIs and DBs in your customer's network, connecting remotely without a VPN.
+- [Site-to-Site Connectivity Overview](https://ngrok.com/docs/guides/site-to-site-connectivity/overview.md): Use ngrok to securely connect to APIs, databases, and services in remote private networks without a VPN.
+- [Site-to-Site Connectivity Quickstart](https://ngrok.com/docs/guides/site-to-site-connectivity/quickstart.md): Get a basic site-to-site connection working in minutes by forwarding traffic from a Cloud Endpoint to a service in a remote network.
+- [Configure Active-Active Agent Redundancy](https://ngrok.com/docs/guides/site-to-site-connectivity/redundant-agents.md): Use multiple ngrok agents so traffic switches if one goes down.
+- [Secure Remote Access with ngrok for SSH and RDP](https://ngrok.com/docs/guides/ssh-rdp/index.md): Learn how to use ngrok to access remote devices via SSH or RDP.
+- [How does ngrok work?](https://ngrok.com/docs/how-ngrok-works.md): Learn how ngrok's global cloud service and agent software work together to provide secure ingress to your applications.
+- [Account Domain Controls](https://ngrok.com/docs/iam/domain-controls.md): Configure account domain controls to claim ownership of email domains and enforce single sign-on for your organization.
+- [Identity and Access Management Overview](https://ngrok.com/docs/iam/index.md): Learn about ngrok's identity and access management system for managing credentials, enforcing access controls, and federating identity.
+- [Role Based Access Control](https://ngrok.com/docs/iam/rbac.md): Configure role-based access control in ngrok to restrict actions that users and service users can perform in your account.
+- [Service Users](https://ngrok.com/docs/iam/service-users.md): Service Users are service accounts that own a set of credentials independently of a person.
+- [Single Sign-On and Provisioning to the ngrok Dashboard](https://ngrok.com/docs/iam/sso.md): Learn how to configure single sign-on for the ngrok dashboard using SAML or OpenID Connect identity providers.
+- [Users](https://ngrok.com/docs/iam/users.md): Understand how users work in ngrok accounts including authentication, credentials, dashboard access, and multi-account membership.
+- [How to secure your ngrok CLI credentials with 1Password](https://ngrok.com/docs/integrations/cli-credentials/1password.md): Use the 1Password CLI and ngrok shell extension to store authtokens and switch credentials at runtime.
+- [Configure Auth0 Single Sign-On with SAML](https://ngrok.com/docs/integrations/dashboard-sso/auth0-dashboard-sso-saml.md): Configure single sign-on (SSO) for your ngrok dashboard using Auth0 as the Identity Provider.
+- [Configure Okta Single Sign-On (SSO)](https://ngrok.com/docs/integrations/dashboard-sso/okta-dashboard-sso-oidc.md): Configure Okta single sign-on (SSO) to sign in to the ngrok dashboard.
+- [Automate user provisioning via SCIM with Okta](https://ngrok.com/docs/integrations/dashboard-sso/okta-dashboard-sso-scim.md): Enable automated user provisioning for your ngrok account via SCIM with Okta.
+- [Salesforce Dashboard Single Sign-On (SSO) Using OIDC](https://ngrok.com/docs/integrations/dashboard-sso/salesforce-dashboard-sso-oidc.md): Use Salesforce's managed applications to add single sign-on (SSO) for your ngrok dashboard using the OIDC integration.
+- [Auth0 Endpoint SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/auth0-sso-oidc.md): Use Auth0 OpenID Connect (OIDC) to secure access to ngrok endpoints with single sign-on.
+- [Azure Active Directory B2C SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/azure-sso-saml.md): Use Microsoft Azure AD B2C to secure access to ngrok endpoints with single sign-on.
+- [Secure your endpoints with Curity Identity Server SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/curity-sso-oidc.md): Secure access to your ngrok endpoints with Curity Identity Server single sign-on (SSO) using OpenID Connect.
+- [Secure your endpoints with Descope SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/descope-sso-oidc.md): Secure access to your ngrok endpoints with Descope single sign-on (SSO) using OpenID Connect.
+- [Secure your endpoints with Descope SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/descope-sso-saml.md): Secure access to your ngrok endpoints with Descope single sign-on (SSO) using SAML.
+- [Secure your endpoints with Frontegg SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/frontegg-sso-oidc.md): Secure access to your ngrok endpoints with Frontegg single sign-on (SSO) using OpenID Connect.
+- [Secure your endpoints with Frontegg SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/frontegg-sso-saml.md): Secure access to your ngrok endpoints with Frontegg single sign-on (SSO) using SAML.
+- [FusionAuth Endpoint SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/fusionauth-sso-oidc.md): Use FusionAuth single sign-on (SSO) to secure access to ngrok endpoints.
+- [JumpCloud Endpoint SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/jumpcloud-sso-oidc.md): Use JumpCloud OIDC to secure access to ngrok endpoints with single sign-on.
+- [JumpCloud SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/jumpcloud-sso-saml.md): Use JumpCloud SAML to secure access to ngrok endpoints with single sign-on.
+- [Microsoft Entra ID SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/microsoft-sso-saml.md): Use Microsoft Entra ID SAML to secure access to the ngrok Dashboard with single sign-on (SSO).
+- [miniOrange Endpoint SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/miniorange-sso-oidc.md): Use miniOrange OIDC to secure access to ngrok endpoints with single sign-on.
+- [miniOrange SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/miniorange-sso-saml.md): Use miniOrange SAML to secure access to ngrok endpoints with single sign-on.
+- [Secure your endpoints with Okta SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/okta-sso-oidc.md): Secure access to your ngrok endpoints with Okta single sign-on (SSO) using OpenID Connect.
+- [Secure your endpoints with Okta SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/okta-sso-saml.md): Secure access to your ngrok endpoints with Okta single sign-on (SSO) using SAML.
+- [Secure ngrok Endpoints using Salesforce OpenID Connect](https://ngrok.com/docs/integrations/endpoint-sso/salesforce-sso-oidc.md): Use Salesforce's managed applications to add single sign-on (SSO) for your ngrok resources.
+- [Wallix Trustelem Endpoint SSO (OpenID Connect)](https://ngrok.com/docs/integrations/endpoint-sso/trustelem-sso-oidc.md): Use Wallix Trustelem OIDC to secure access to ngrok endpoints with single sign-on.
+- [Wallix Trustelem SSO (SAML)](https://ngrok.com/docs/integrations/endpoint-sso/trustelem-sso-saml.md): Use Wallix Trustelem SAML to secure access to ngrok endpoints with single sign-on.
+- [Send Network Logs from ngrok to AWS CloudWatch](https://ngrok.com/docs/integrations/event-destinations/amazon-cloudwatch-event-destination.md): Send network traffic logs from ngrok to AWS CloudWatch.
+- [Send Network Logs from ngrok to AWS Firehose](https://ngrok.com/docs/integrations/event-destinations/amazon-firehose-event-destination.md): Send network traffic logs from ngrok to AWS Firehose.
+- [Send Network Logs from ngrok to AWS Kinesis](https://ngrok.com/docs/integrations/event-destinations/amazon-kinesis-event-destination.md): Send network traffic logs from ngrok to AWS Kinesis.
+- [Integrate with the Azure Logs Ingestion API](https://ngrok.com/docs/integrations/event-destinations/azure-logs-event-destination.md): Send network traffic logs from ngrok to Azure Logs Ingestion.
+- [Send Network Logs from ngrok to Datadog](https://ngrok.com/docs/integrations/event-destinations/datadog-event-destination.md): Send network traffic logs from ngrok to Datadog.
+- [How to access Home Assistant from anywhere with ngrok](https://ngrok.com/docs/integrations/guides/home-assistant-with-ngrok.md): Expose your Home Assistant instance with ngrok and access your dashboard over the internet.
+- [MQTT](https://ngrok.com/docs/integrations/guides/mqtt.md): Learn how to expose your MQTT server to the internet using ngrok TCP tunnels and connect remotely with MQTT Explorer.
+- [Integrations Hub](https://ngrok.com/docs/integrations/index.md): Browse integration guides and tutorials for connecting ngrok with third-party services, platforms, and development tools.
+- [Enable JWT validation with Auth0](https://ngrok.com/docs/integrations/jwt-validation/auth0.md): Configure JWT Validation for tokens issued from Auth0.
+- [Deploy a production API and gateway with APIOps using Argo CD and ngrok](https://ngrok.com/docs/integrations/kubernetes-ingress/apiops.md): Deploy an API with APIOps and Argo CD using ngrok.
+- [Ingress to apps secured by Microsoft Entra ID in Kubernetes](https://ngrok.com/docs/integrations/kubernetes-ingress/azure-ad-k8s.md): Use ngrok to add ingress to Kubernetes apps and authenticate users with Microsoft Entra ID.
+- [Ingress to Kubernetes apps deployed on Azure Kubernetes Service (AKS)](https://ngrok.com/docs/integrations/kubernetes-ingress/azure-aks-k8s.md): Learn how to deploy a new Kubernetes cluster and demo app via AKS, then add ingress to applications with ngrok's Kubernetes Operator.
+- [Kubernetes ingress to services in a Consul service mesh](https://ngrok.com/docs/integrations/kubernetes-ingress/consul-k8s.md): Set up a local Consul service mesh to use the ngrok Kubernetes Operator with Consul.
+- [Ingress to Kubernetes apps on clusters managed by DigitalOcean](https://ngrok.com/docs/integrations/kubernetes-ingress/digitalocean-k8s.md): Add Kubernetes ingress to any app running in a cluster managed by DigitalOcean using the ngrok Kubernetes Operator.
+- [Kubernetes ingress to services hosted on EKS](https://ngrok.com/docs/integrations/kubernetes-ingress/eks.md): Learn how to get started running the ngrok Kubernetes Operator on AWS EKS.
+- [ngrok External Secrets integration](https://ngrok.com/docs/integrations/kubernetes-ingress/external-secrets.md): ngrok integrates with External Secrets Operator to enable secure management of secrets used in ngrok Traffic Policy.
+- [Kubernetes ingress to GKE services with ngrok](https://ngrok.com/docs/integrations/kubernetes-ingress/google-kubernetes-engine.md): Learn how to use the ngrok Kubernetes Operator on Google Kubernetes Engine (GKE) to quickly add secure Kubernetes ingress to your apps or APIs.
+- [Use ngrok's Global Server Load Balancing with DigitalOcean](https://ngrok.com/docs/integrations/kubernetes-ingress/gslb.md): Layer load balancing between three or more globally distributed, cloud-based virtual machines in DigitalOcean using ngrok's GSLB.
+- [Kubernetes Ingress Integrations](https://ngrok.com/docs/integrations/kubernetes-ingress/index.md): Browse integration guides for using the ngrok Kubernetes Operator with major cloud providers, platforms, and service meshes.
+- [Ingress to a microservices-based application connected via Linkerd's service mesh](https://ngrok.com/docs/integrations/kubernetes-ingress/k8s.md): Set up a local cluster to demonstrate how to use the ngrok Kubernetes Operator with Linkerd.
+- [Kubernetes ingress to apps/APIs on clusters managed by Canonical MicroK8s](https://ngrok.com/docs/integrations/kubernetes-ingress/microk8s-k8s.md): Add ingress to any app running in a Kubernetes cluster managed by Canonical MicroK8s using the ngrok Kubernetes Operator.
+- [Ingress to Kubernetes apps managed by Rafay](https://ngrok.com/docs/integrations/kubernetes-ingress/rafay-k8s.md): Add ingress to any app running in a Kubernetes cluster managed by Rafay using the ngrok Kubernetes Operator.
+- [Kubernetes ingress to applications and clusters managed by Rancher](https://ngrok.com/docs/integrations/kubernetes-ingress/rancher-k8s.md): Set up a local installation of Rancher to deploy a new RKE2 cluster and add ingress to applications with ngrok's Kubernetes Operator.
+- [Ingress to Kubernetes apps deployed on Spectro Cloud Palette](https://ngrok.com/docs/integrations/kubernetes-ingress/spectro-cloud-k8s.md): Add ingress to any app running in a Kubernetes cluster managed by Spectro Cloud's Palette platform using the ngrok Kubernetes Operator.
+- [Ingress to Kubernetes apps and services with vcluster](https://ngrok.com/docs/integrations/kubernetes-ingress/vcluster-k8s.md): Set up a local virtual cluster to use the ngrok Kubernetes Operator with vcluster.
+- [Facebook OAuth](https://ngrok.com/docs/integrations/oauth/facebook-oauth.md): Configure ngrok to authenticate users with Facebook OAuth. Register an app and add the OAuth callback URL.
+- [GitHub OAuth](https://ngrok.com/docs/integrations/oauth/github-oauth.md): Configure ngrok to authenticate users with GitHub OAuth. Register an OAuth app and set the callback URL.
+- [GitLab OAuth](https://ngrok.com/docs/integrations/oauth/gitlab-oauth.md): Configure ngrok to authenticate users with GitLab OAuth. Create an app and set the redirect URI and scopes.
+- [Google OAuth](https://ngrok.com/docs/integrations/oauth/google-oauth.md): Configure ngrok to authenticate users with Google OAuth 2.0. Set up a GCP project, consent screen, and OAuth client.
+- [LinkedIn OAuth](https://ngrok.com/docs/integrations/oauth/linkedin-oauth.md): Configure ngrok to authenticate users with LinkedIn OAuth. Create an app in the LinkedIn Developer Portal and set the callback URL.
+- [Microsoft OAuth](https://ngrok.com/docs/integrations/oauth/microsoft-oauth.md): Configure ngrok to authenticate users with Microsoft Entra ID (Azure AD) OAuth. Register an app in the Azure portal.
+- [Amazon OAuth](https://ngrok.com/docs/integrations/oauth/oauth.md): Configure ngrok to authenticate users with Amazon OAuth (Login with Amazon) for websites and apps.
+- [Twitch OAuth](https://ngrok.com/docs/integrations/oauth/twitch-oauth.md): Configure ngrok to authenticate users with Twitch OAuth. Register an application in the Twitch developer console.
+- [AfterShip Webhooks](https://ngrok.com/docs/integrations/webhooks/aftership-webhooks.md): Develop and test AfterShip webhooks from localhost.
+- [Airship Webhooks](https://ngrok.com/docs/integrations/webhooks/airship-webhooks.md): Develop and test Airship webhooks from localhost.
+- [Alchemy Webhooks](https://ngrok.com/docs/integrations/webhooks/alchemy-webhooks.md): Develop and test Alchemy webhooks from localhost.
+- [Amazon SNS Webhooks](https://ngrok.com/docs/integrations/webhooks/amazon-sns-webhooks.md): Develop and test Amazon SNS webhooks from localhost.
+- [Autodesk Platform Services Webhooks](https://ngrok.com/docs/integrations/webhooks/autodesk-webhooks.md): Develop and test Autodesk webhooks from localhost.
+- [Bitbucket Repository Webhooks](https://ngrok.com/docs/integrations/webhooks/bitbucket-webhooks.md): Develop and test Bitbucket webhooks from localhost.
+- [Box Webhooks](https://ngrok.com/docs/integrations/webhooks/box-webhooks.md): Develop and test Box webhooks from localhost.
+- [Brex Webhooks](https://ngrok.com/docs/integrations/webhooks/brex-webhooks.md): Develop and test Brex webhooks from localhost.
+- [Buildkite Webhooks](https://ngrok.com/docs/integrations/webhooks/buildkite-webhooks.md): Develop and test Buildkite webhooks from localhost.
+- [Calendly Webhooks](https://ngrok.com/docs/integrations/webhooks/calendly-webhooks.md): Develop and test Calendly webhooks from localhost.
+- [Castle Webhooks](https://ngrok.com/docs/integrations/webhooks/castle-webhooks.md): Develop and test Castle webhooks from localhost.
+- [Chargify Webhooks](https://ngrok.com/docs/integrations/webhooks/chargify-webhooks.md): Develop and test Chargify webhooks from localhost.
+- [CircleCI Webhooks](https://ngrok.com/docs/integrations/webhooks/circleci-webhooks.md): Develop and test CircleCI webhooks from localhost.
+- [Clearbit Webhooks](https://ngrok.com/docs/integrations/webhooks/clearbit-webhooks.md): Develop and test Clearbit webhooks from localhost.
+- [Clerk Webhooks](https://ngrok.com/docs/integrations/webhooks/clerk-webhooks.md): Develop and test Clerk webhooks from localhost.
+- [Coinbase Webhooks](https://ngrok.com/docs/integrations/webhooks/coinbase-webhooks.md): Develop and test Coinbase webhooks from localhost.
+- [Contentful Webhooks](https://ngrok.com/docs/integrations/webhooks/contentful-webhooks.md): Develop and test Contentful webhooks from localhost.
+- [DocuSign Webhooks](https://ngrok.com/docs/integrations/webhooks/docusign-webhooks.md): Develop and test DocuSign webhooks from localhost.
+- [Dropbox Webhooks](https://ngrok.com/docs/integrations/webhooks/dropbox-webhooks.md): Develop and test Dropbox webhooks from localhost.
+- [Facebook Messenger Webhooks](https://ngrok.com/docs/integrations/webhooks/facebook-messenger-webhooks.md): Develop and test Facebook Messenger webhooks from localhost.
+- [Facebook Webhooks](https://ngrok.com/docs/integrations/webhooks/facebook-webhooks.md): Develop and test Facebook webhooks from localhost.
+- [Frame.io Webhooks](https://ngrok.com/docs/integrations/webhooks/frameio-webhooks.md): Develop and test Frame.io webhooks from localhost.
+- [GitHub Repository Webhooks](https://ngrok.com/docs/integrations/webhooks/github-webhooks.md): Develop and test GitHub webhooks from localhost.
+- [GitLab Repository Webhooks](https://ngrok.com/docs/integrations/webhooks/gitlab-webhooks.md): Develop and test GitLab webhooks from localhost.
+- [Heroku Webhooks](https://ngrok.com/docs/integrations/webhooks/heroku-webhooks.md): Develop and test Heroku webhooks from localhost.
+- [HostedHooks Webhooks](https://ngrok.com/docs/integrations/webhooks/hostedhooks-webhooks.md): Develop and test HostedHooks webhooks from localhost.
+- [HubSpot Webhooks](https://ngrok.com/docs/integrations/webhooks/hubspot-webhooks.md): Develop and test HubSpot webhooks from localhost.
+- [Hygraph Webhooks](https://ngrok.com/docs/integrations/webhooks/hygraph-webhooks.md): Develop and test Hygraph webhooks from localhost.
+- [Instagram Webhooks](https://ngrok.com/docs/integrations/webhooks/instagram-webhooks.md): Develop and test Instagram webhooks from localhost.
+- [Intercom Webhooks](https://ngrok.com/docs/integrations/webhooks/intercom-webhooks.md): Develop and test Intercom webhooks from localhost.
+- [Jira Webhooks](https://ngrok.com/docs/integrations/webhooks/jira-webhooks.md): Develop and test Jira webhooks from localhost.
+- [LaunchDarkly Webhooks](https://ngrok.com/docs/integrations/webhooks/launchdarkly-webhooks.md): Develop and test LaunchDarkly webhooks from localhost.
+- [Linear Webhooks](https://ngrok.com/docs/integrations/webhooks/linear-webhooks.md): Develop and test Linear webhooks from localhost.
+- [Mailchimp Webhooks](https://ngrok.com/docs/integrations/webhooks/mailchimp-webhooks.md): Develop and test Mailchimp webhooks from localhost.
+- [Mailgun Webhooks](https://ngrok.com/docs/integrations/webhooks/mailgun-webhooks.md): Develop and test Mailgun webhooks from localhost.
+- [Modern Treasury Webhooks](https://ngrok.com/docs/integrations/webhooks/modern-treasury-webhooks.md): Develop and test Modern Treasury webhooks from localhost.
+- [MongoDB Webhooks](https://ngrok.com/docs/integrations/webhooks/mongodb-webhooks.md): Develop and test MongoDB webhooks from localhost.
+- [Mux Webhooks](https://ngrok.com/docs/integrations/webhooks/mux-webhooks.md): Develop and test Mux webhooks from localhost.
+- [Okta Webhooks](https://ngrok.com/docs/integrations/webhooks/okta-webhooks.md): Develop and test Okta webhooks from localhost.
+- [Orbit Webhooks](https://ngrok.com/docs/integrations/webhooks/orbit-webhooks.md): Develop and test Orbit webhooks from localhost.
+- [PagerDuty Webhooks](https://ngrok.com/docs/integrations/webhooks/pagerduty-webhooks.md): Develop and test PagerDuty webhooks from localhost.
+- [Pinwheel Webhooks](https://ngrok.com/docs/integrations/webhooks/pinwheel-webhooks.md): Develop and test Pinwheel webhooks from localhost.
+- [Plivo Webhooks](https://ngrok.com/docs/integrations/webhooks/plivo-webhooks.md): Develop and test Plivo webhooks from localhost.
+- [Pusher Webhooks](https://ngrok.com/docs/integrations/webhooks/pusher-webhooks.md): Develop and test Pusher webhooks from localhost.
+- [SendGrid Webhooks](https://ngrok.com/docs/integrations/webhooks/sendgrid-webhooks.md): Develop and test SendGrid webhooks from localhost.
+- [Sentry Webhooks](https://ngrok.com/docs/integrations/webhooks/sentry-webhooks.md): Develop and test Sentry webhooks from localhost.
+- [Shopify Webhooks](https://ngrok.com/docs/integrations/webhooks/shopify-webhooks.md): Develop and test Shopify webhooks from localhost.
+- [Signal Sciences Webhooks](https://ngrok.com/docs/integrations/webhooks/signalsciences-webhooks.md): Develop and test Signal Sciences webhooks from localhost.
+- [Slack Webhooks](https://ngrok.com/docs/integrations/webhooks/slack-webhooks.md): Develop and test Slack webhooks from localhost.
+- [Sonatype Nexus Webhooks](https://ngrok.com/docs/integrations/webhooks/sonatype-nexus-webhooks.md): Develop and test Sonatype Nexus webhooks from localhost.
+- [Square Webhooks](https://ngrok.com/docs/integrations/webhooks/square-webhooks.md): Develop and test Square webhooks from localhost.
+- [Stripe Webhooks](https://ngrok.com/docs/integrations/webhooks/stripe-webhooks.md): Develop and test Stripe webhooks from localhost.
+- [Svix Webhooks](https://ngrok.com/docs/integrations/webhooks/svix-webhooks.md): Develop and test Svix webhooks from localhost.
+- [Microsoft Teams Webhooks](https://ngrok.com/docs/integrations/webhooks/teams-webhooks.md): Develop and test Microsoft Teams webhooks from localhost.
+- [Terraform Cloud Webhooks](https://ngrok.com/docs/integrations/webhooks/terraform-webhooks.md): Develop and test Terraform webhooks from localhost.
+- [TikTok Webhooks](https://ngrok.com/docs/integrations/webhooks/tiktok-webhooks.md): Develop and test TikTok webhooks from localhost.
+- [Trend Micro Webhooks](https://ngrok.com/docs/integrations/webhooks/trendmicro-webhooks.md): Develop and test Trend Micro webhooks from localhost.
+- [Twilio SMS Webhooks](https://ngrok.com/docs/integrations/webhooks/twilio-webhooks.md): Develop and test Twilio webhooks from localhost.
+- [X (formerly Twitter) Webhooks](https://ngrok.com/docs/integrations/webhooks/twitter-webhooks.md): Develop and test X (formerly Twitter) webhooks from localhost.
+- [Typeform Webhooks](https://ngrok.com/docs/integrations/webhooks/typeform-webhooks.md): Develop and test Typeform webhooks from localhost.
+- [VMware Workspace ONE Webhooks](https://ngrok.com/docs/integrations/webhooks/vmware-webhooks.md): Develop and test VMware webhooks from localhost.
+- [Cisco Webex Webhooks](https://ngrok.com/docs/integrations/webhooks/webex-webhooks.md): Develop and test Webex webhooks from localhost.
+- [WhatsApp Webhooks](https://ngrok.com/docs/integrations/webhooks/whatsapp-webhooks.md): Develop and test WhatsApp webhooks from localhost.
+- [Worldline Webhooks](https://ngrok.com/docs/integrations/webhooks/worldline-webhooks.md): Develop and test Worldline webhooks from localhost.
+- [Xero Webhooks](https://ngrok.com/docs/integrations/webhooks/xero-webhooks.md): Develop and test Xero webhooks from localhost.
+- [Zendesk Webhooks](https://ngrok.com/docs/integrations/webhooks/zendesk-webhooks.md): Develop and test Zendesk webhooks from localhost.
+- [Zoom Webhooks](https://ngrok.com/docs/integrations/webhooks/zoom-webhooks.md): Develop and test Zoom webhooks from localhost.
+- [Kubernetes Operator Changelog](https://ngrok.com/docs/k8s/changelog.md): Learn about changes to ngrok's Kubernetes Operator.
+- [AgentEndpoint](https://ngrok.com/docs/k8s/crds/agentendpoint.md): Reference documentation for the AgentEndpoint Kubernetes custom resource for managing agent-based endpoints with the ngrok operator.
+- [BoundEndpoint](https://ngrok.com/docs/k8s/crds/boundendpoint.md): Reference documentation for the BoundEndpoint Kubernetes custom resource for managing cross-cluster networking with ngrok.
+- [CloudEndpoint](https://ngrok.com/docs/k8s/crds/cloudendpoint.md): Reference documentation for the CloudEndpoint Kubernetes custom resource for creating persistent, always-on Cloud Endpoints.
+- [Domain](https://ngrok.com/docs/k8s/crds/domain.md): Reference documentation for the Domain Kubernetes custom resource for managing reserved hostnames for ngrok endpoints.
+- [Kubernetes Operator Custom Resources (CRDs)](https://ngrok.com/docs/k8s/crds/index.md): Reference documentation for all custom resource definitions available in the ngrok Kubernetes Operator for managing endpoints and configurations.
+- [IPPolicy](https://ngrok.com/docs/k8s/crds/ippolicy.md): Learn how to use IP Policies to control traffic through your K8s endpoints.
+- [KubernetesOperator](https://ngrok.com/docs/k8s/crds/kubernetesoperator.md): Reference documentation for the KubernetesOperator custom resource that synchronizes ngrok operator state with the ngrok API.
+- [NgrokTrafficPolicy](https://ngrok.com/docs/k8s/crds/ngroktrafficpolicy.md): Reference documentation for the NgrokTrafficPolicy Kubernetes custom resource for defining reusable Traffic Policy configurations.
+- [Custom ngrok Annotations](https://ngrok.com/docs/k8s/guides/annotations.md): Reference documentation for custom annotations used with the ngrok Kubernetes Operator to extend functionality of Ingress and Gateway resources.
+- [Binding Endpoints in the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/bindings.md): Learn about ngrok's endpoint bindings and how to use them in the ngrok Kubernetes Operator.
+- [Kubernetes Custom White-Label Domains](https://ngrok.com/docs/k8s/guides/custom-domain.md): Learn how to use custom domains with the ngrok Kubernetes Operator.
+- [How to create endpoints in the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/endpoint-types.md): Learn how to create endpoints that accept `http://`, `https://`, `tcp://`, and `tls://` requests using the ngrok Kubernetes Operator.
+- [Finalizers Created by the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/finalizers.md): Learn about how the ngrok Kubernetes Operator uses finalizers to ensure proper cleanup of ngrok resources before deletion.
+- [Securing Endpoints with Basic Authentication](https://ngrok.com/docs/k8s/guides/how-to/basic-auth.md): Learn how to secure your Kubernetes endpoints with basic authentication using the ngrok Kubernetes Operator and Traffic Policies.
+- [Circuit Breaking for System Reliability](https://ngrok.com/docs/k8s/guides/how-to/circuit-breaking.md): Configure circuit breaking in Kubernetes to protect your services from overload and maintain system reliability with ngrok.
+- [Improving Performance with Response Compression](https://ngrok.com/docs/k8s/guides/how-to/compress-response.md): Enable response compression in Kubernetes to improve performance and reduce bandwidth usage for your ngrok endpoints.
+- [Protecting Your Endpoints by Denying Unwanted Traffic](https://ngrok.com/docs/k8s/guides/how-to/deny-requests.md): Configure request denial rules in Kubernetes to block unwanted or malicious traffic before it reaches your upstream services.
+- [Securing Your Endpoints with JWT Validation](https://ngrok.com/docs/k8s/guides/how-to/jwt-validation.md): Configure JWT validation in Kubernetes to secure your endpoints by verifying authentication tokens at the network edge.
+- [Customizing Requests with Header Manipulation](https://ngrok.com/docs/k8s/guides/how-to/manipulate-headers.md): Learn how to add, modify, or remove HTTP headers in Kubernetes to enhance security, routing, and service compatibility.
+- [Securing Your Endpoints with OAuth Authentication](https://ngrok.com/docs/k8s/guides/how-to/oauth.md): Configure OAuth authentication in Kubernetes to secure your endpoints by requiring valid OAuth tokens before forwarding requests.
+- [Authenticating Users with OpenID Connect (OIDC)](https://ngrok.com/docs/k8s/guides/how-to/oidc.md): Configure OpenID Connect authentication in Kubernetes to secure your endpoints using trusted identity providers.
+- [Restricting Access by Kubernetes Pod Identity](https://ngrok.com/docs/k8s/guides/how-to/pod-identity.md): Use Kubernetes pod identity variables to secure Endpoints.
+- [Protecting Services with Rate Limiting](https://ngrok.com/docs/k8s/guides/how-to/rate-limiting.md): Configure rate limiting in Kubernetes to protect your services from excessive traffic and ensure fair usage across clients.
+- [Managing Traffic with Redirects](https://ngrok.com/docs/k8s/guides/how-to/redirects.md): Configure URL redirects in Kubernetes to route users to the correct destination and enforce HTTPS connections.
+- [Controlling Traffic Flow with Request Routing](https://ngrok.com/docs/k8s/guides/how-to/request-routing.md): Configure request routing in Kubernetes to direct incoming traffic to the appropriate backend services based on rules.
+- [Controlling Access with IP Restrictions](https://ngrok.com/docs/k8s/guides/how-to/restrict-ips.md): Configure IP restrictions in Kubernetes to allow or deny access based on source IP addresses using allow lists or deny lists.
+- [Customizing Request Routing with URL Rewriting](https://ngrok.com/docs/k8s/guides/how-to/rewrite-url.md): Configure URL rewriting in Kubernetes to modify request URLs before forwarding them to your upstream services.
+- [Serving Static Responses with Custom Response Policies](https://ngrok.com/docs/k8s/guides/how-to/static-response.md): Configure static responses in Kubernetes to return predefined responses directly from the gateway without backend calls.
+- [TCP Routing](https://ngrok.com/docs/k8s/guides/how-to/tcp-routing.md): Configure TCP routing in Kubernetes to handle raw network traffic for non-HTTP protocols like databases and game servers.
+- [Managing TLS Termination for Secure Connections](https://ngrok.com/docs/k8s/guides/how-to/terminate-tls.md): Configure TLS termination in Kubernetes to use custom certificates, enforce TLS versions, and enable mutual TLS.
+- [TLS Routing](https://ngrok.com/docs/k8s/guides/how-to/tls-routing.md): Configure TLS routing in Kubernetes to handle encrypted traffic using SNI-based routing with optional TLS termination.
+- [Securing Upstream Connections with TLS & Mutual TLS (mTLS)](https://ngrok.com/docs/k8s/guides/how-to/upstream-tls.md): Configure upstream TLS and mutual TLS in Kubernetes to secure connections between ngrok and your backend services.
+- [Running a Local Kubernetes Cluster](https://ngrok.com/docs/k8s/guides/local-cluster.md): Learn how to set up a local Kubernetes cluster for development and testing with the ngrok Kubernetes Operator.
+- [Projecting Local Services into Remote Clusters](https://ngrok.com/docs/k8s/guides/local-projection.md): Learn how to use Kubernetes bindings to instantly test local services against remote staging or production-like clusters without slow CI/CD loops.
+- [ngrok Kubernetes Operator Managed Resources](https://ngrok.com/docs/k8s/guides/managed-resources.md): Learn about the resources that the ngrok Kubernetes Operator manages.
+- [Running Multiple ngrok Operator Installations](https://ngrok.com/docs/k8s/guides/multiple-installs.md): How to run multiple instances of the ngrok Kubernetes Operator in a single cluster using namespace-scoped installations.
+- [Pooling Endpoints in the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/pooling.md): Learn how to load balance traffic between endpoints using the ngrok Kubernetes Operator.
+- [Troubleshooting the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/troubleshooting.md): Learn how to troubleshoot common issues with the ngrok Kubernetes Operator using kubectl describe, events, and logs.
+- [Using ngrok Custom Resources](https://ngrok.com/docs/k8s/guides/using-crds.md): Learn how to use ngrok's custom resources with the ngrok Kubernetes Operator.
+- [Gateway API with the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/guides/using-gwapi.md): Learn how to use Gateway API resources with the ngrok Kubernetes Operator to configure ingress and routing for your services.
+- [How the ngrok Operator Uses Ingresses](https://ngrok.com/docs/k8s/guides/using-ingresses.md): Learn how the ngrok Kubernetes Operator consumes Ingress resources and translates them into CloudEndpoint and AgentEndpoint resources.
+- [How the ngrok Operator Uses LoadBalancer Services](https://ngrok.com/docs/k8s/guides/using-loadbalancers.md): Learn how the ngrok Kubernetes Operator automatically exposes LoadBalancer services using TCP or TLS endpoints with reserved addresses.
+- [How the ngrok Kubernetes Operator Works](https://ngrok.com/docs/k8s/how-it-works.md): Learn how the ngrok Kubernetes Operator uses secure outbound connections to provide public endpoints for your Kubernetes services.
+- [Kubernetes Operator](https://ngrok.com/docs/k8s/index.md): Learn about the ngrok Kubernetes Operator for providing secure ingress to your k8s applications.
+- [Kubernetes Operator Architecture](https://ngrok.com/docs/k8s/installation/architecture.md): Learn about the architecture of the ngrok Kubernetes Operator including controllers, control loops, and design decisions.
+- [Kubernetes Operator Helm Configuration](https://ngrok.com/docs/k8s/installation/helm.md): Reference documentation for Helm configuration values when installing and configuring the ngrok Kubernetes Operator.
+- [Monitoring the Kubernetes Operator](https://ngrok.com/docs/k8s/installation/observability.md): Learn how to enable and customize ngrok's Kubernetes ingress Observability features.
+- [Uninstalling the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/installation/uninstall.md): How to uninstall the ngrok Kubernetes Operator, clean up resources, and understand what happens during the process.
+- [How to update the ngrok Kubernetes Operator](https://ngrok.com/docs/k8s/installation/update.md): Learn how to update the ngrok Kubernetes Operator to the latest version using Helm, including Gateway API CRD updates.
+- [Load Balancing for Kubernetes Services](https://ngrok.com/docs/k8s/load-balancing/load-balancing-kubernetes.md): Learn how to use Endpoint Pooling to share incoming traffic between services in different clusters or clouds.
+- [Load Balancing Between Multiple Kubernetes Clusters](https://ngrok.com/docs/k8s/load-balancing/load-balancing-kubernetes-clusters.md): Use Endpoint Pooling to split traffic between any number of clusters without needing to deploy external services.
+- [Kubernetes Operator Release Process](https://ngrok.com/docs/k8s/releasing.md): Learn about the ngrok Kubernetes Operator release process including Docker images, Helm charts, and semantic versioning.
+- [Events](https://ngrok.com/docs/obs/events/index.md): Learn about ngrok's event logging system for exporting traffic logs, audit logs, and configuration changes to external services.
+- [Event Source Reference](https://ngrok.com/docs/obs/events/reference.md): Reference documentation for all ngrok Log Event Sources.
+- [Traffic Observability Overview](https://ngrok.com/docs/obs/index.md): Learn about ngrok's traffic observability features for inspecting requests, debugging issues, and exporting events to external logging systems.
+- [Traffic Inspector](https://ngrok.com/docs/obs/traffic-inspection.md): Learn how to use ngrok's Traffic Inspector to view, debug, and replay HTTP traffic flowing through your endpoints in real-time.
+- [Free Plan Limits](https://ngrok.com/docs/pricing-limits/free-plan-limits.md): Learn about the limits and restrictions enforced on the free ngrok for developers plan including endpoint limits and usage quotas.
+- [Pricing and Limits](https://ngrok.com/docs/pricing-limits/index.md): Learn about ngrok pricing, limits, and licensing for paid production plans including feature comparisons and billing information.
+- [Pricing Glossary](https://ngrok.com/docs/pricing-limits/pricing-glossary.md): Definitions for every feature and metric that appears in the ngrok pricing docs.
+- [Traffic Policy Unit (TPU) Pricing](https://ngrok.com/docs/pricing-limits/traffic-policy-unit-pricing.md): Learn about how ngrok uses Traffic Processing Units (TPUs) to measure and charge for Traffic Policy usage.
+- [Get Started with ngrok](https://ngrok.com/docs/start.md): ngrok makes it easy to put your apps, APIs, and services online.
+- [Add Headers Action](https://ngrok.com/docs/traffic-policy/actions/add-headers.md): Add headers to an HTTP request or response before it is delivered upstream or back to the client.
+- [AI Gateway](https://ngrok.com/docs/traffic-policy/actions/ai-gateway.md): Route requests to AI providers with automatic failover, load balancing, and observability.
+- [Basic Auth Action](https://ngrok.com/docs/traffic-policy/actions/basic-auth.md): Enforce HTTP Basic Auth on your endpoints.
+- [Circuit Breaker Action](https://ngrok.com/docs/traffic-policy/actions/circuit-breaker.md): Prevent overload and maintain system reliability by rejecting requests when errors and volume exceed set thresholds.
+- [Close Connection Action](https://ngrok.com/docs/traffic-policy/actions/close-connection.md): Forcibly close connections to an endpoint.
+- [Compress Response Action](https://ngrok.com/docs/traffic-policy/actions/compress-response.md): Compress HTTP response bodies before they are returned to the client.
+- [Custom Response Action](https://ngrok.com/docs/traffic-policy/actions/custom-response.md): Return a hard-coded response back to the client that made a request to your endpoint.
+- [Deny Action](https://ngrok.com/docs/traffic-policy/actions/deny.md): The Deny action enables you to reject incoming requests on your endpoints before they make it to your upstream service.
+- [Forward Internal Action](https://ngrok.com/docs/traffic-policy/actions/forward-internal.md): The Forward Internal action enables you to forward traffic from an endpoint to a internal endpoint within the same ngrok account.
+- [HTTP Request Action](https://ngrok.com/docs/traffic-policy/actions/http-request.md): The HTTP Request action performs an outbound HTTP request to a target URL.
+- [Traffic Policy Actions](https://ngrok.com/docs/traffic-policy/actions/index.md): Learn how to use Traffic Policy Actions to manage traffic to your endpoints.
+- [JWT Validation Action](https://ngrok.com/docs/traffic-policy/actions/jwt-validation.md): Validate JSON Web Tokens (JWT) on your endpoints before routing traffic to your upstream service.
+- [Log Action](https://ngrok.com/docs/traffic-policy/actions/log.md): The Log action enables you to log metadata to ngrok's eventing system.
+- [OAuth Action](https://ngrok.com/docs/traffic-policy/actions/oauth.md): The OAuth action restricts access to only authorized users by enforcing OAuth through an identity provider of your choice.
+- [OpenID Connect Action](https://ngrok.com/docs/traffic-policy/actions/oidc.md): The OpenID Connect (OIDC) action restricts access to only authorized users by enforcing OIDC through an identity provider of your choice.
+- [OWASP CRS Request Action](https://ngrok.com/docs/traffic-policy/actions/owasp-crs-request.md): Block common web attacks with the `owasp-crs-request` action in Traffic Policy.
+- [OWASP CRS Response Action](https://ngrok.com/docs/traffic-policy/actions/owasp-crs-response.md): Block common web attacks with the `owasp-crs-response` action in Traffic Policy.
+- [Rate Limit Action](https://ngrok.com/docs/traffic-policy/actions/rate-limit.md): Limit the rate of traffic that successfully reaches your endpoint.
+- [Redirect Action](https://ngrok.com/docs/traffic-policy/actions/redirect.md): Redirect incoming requests to new URLs by modifying the original URLs with regular expressions.
+- [Remove Headers Action](https://ngrok.com/docs/traffic-policy/actions/remove-headers.md): Remove headers from an HTTP request or response before it is delivered upstream or back to the client.
+- [Request Body Find & Replace Action](https://ngrok.com/docs/traffic-policy/actions/request-body-find-replace.md): Find and replace text patterns in HTTP request bodies using regular expressions.
+- [Response Body Find & Replace Action](https://ngrok.com/docs/traffic-policy/actions/response-body-find-replace.md): Find and replace text patterns in HTTP response bodies using regular expressions.
+- [Restrict IPs Action](https://ngrok.com/docs/traffic-policy/actions/restrict-ips.md): Allow or deny traffic based on the source IP address of connections to your ngrok endpoints.
+- [SAML Action](https://ngrok.com/docs/traffic-policy/actions/saml.md): The SAML action restricts access to only authorized users by enforcing SAML through an identity provider of your choice.
+- [Set Vars Action](https://ngrok.com/docs/traffic-policy/actions/set-vars.md): Define or update global variables in a Traffic Policy's runtime context.
+- [SSE Find & Replace Action](https://ngrok.com/docs/traffic-policy/actions/sse-find-replace.md): Find and replace text patterns in Server-Sent Events (SSE) streams.
+- [Terminate TLS Action](https://ngrok.com/docs/traffic-policy/actions/terminate-tls.md): Control how TLS traffic is terminated by ngrok, including custom certificates and mutual TLS.
+- [URL Rewrite Action](https://ngrok.com/docs/traffic-policy/actions/url-rewrite.md): Modify the incoming request URL using regular expressions before it reaches the upstream server, while keeping the URL seen by the client unchanged.
+- [Verify Webhook Action](https://ngrok.com/docs/traffic-policy/actions/verify-webhook.md): Validate incoming webhook signatures against a known secret to ensure authenticity.
+- [Expression Examples](https://ngrok.com/docs/traffic-policy/concepts/expressions.md): Learn how to write CEL expressions in Traffic Policy to define conditions for triggering actions based on traffic attributes.
+- [IP Policies](https://ngrok.com/docs/traffic-policy/concepts/ip-policies.md): Use rules to allow or deny traffic and dashboard access from specific IPs and CIDRs.
+- [How to run an A/B test](https://ngrok.com/docs/traffic-policy/examples/a-b-tests.md): Learn how to run A/B tests using Traffic Policy by routing traffic to different endpoints based on random distribution.
+- [Add and Remove Headers](https://ngrok.com/docs/traffic-policy/examples/add-and-remove-headers.md): Learn how to add and remove HTTP headers in Traffic Policy to enrich requests or remove sensitive information before forwarding.
+- [Add Authentication](https://ngrok.com/docs/traffic-policy/examples/add-authentication.md): Learn how to add authentication to your endpoints using Traffic Policy with Basic Auth, OAuth, OIDC, JWT validation, and more.
+- [Block Unwanted Requests](https://ngrok.com/docs/traffic-policy/examples/block-unwanted-requests.md): Learn how to block unwanted or malicious requests using Traffic Policy including examples for blocking Tor, bots, and specific IPs.
+- [Compress JSON Responses Example](https://ngrok.com/docs/traffic-policy/examples/compress-json-responses.md): Learn how to compress JSON responses using Traffic Policy to improve performance and reduce bandwidth usage.
+- [Enforce TLS Example](https://ngrok.com/docs/traffic-policy/examples/enforce-tls.md): Learn how to enforce minimum TLS version requirements using Traffic Policy to reject connections using outdated TLS versions.
+- [Event Logging Example](https://ngrok.com/docs/traffic-policy/examples/event-logging.md): Learn how to configure event logging in Traffic Policy to export logs to external services like Datadog for monitoring and troubleshooting.
+- [Filter Traffic by IP Category](https://ngrok.com/docs/traffic-policy/examples/filter-by-ip-category.md): Learn how to allow or block traffic from specific services, bots, cloud providers, and threat categories using ngrok's built-in IP Intelligence categories.
+- [Traffic Policy Examples](https://ngrok.com/docs/traffic-policy/examples/index.md): Example Traffic Policies to help you get started.
+- [Using OAuth Traffic Policy on Endpoints](https://ngrok.com/docs/traffic-policy/examples/oauth-protection.md): Learn how to add OAuth authentication to your ngrok endpoints using Traffic Policy.
+- [How to Rate Limit Traffic](https://ngrok.com/docs/traffic-policy/examples/rate-limit-requests.md): Learn how to rate limit requests using Traffic Policy with examples for endpoint-based, IP-based, and key-based rate limiting.
+- [Route Requests](https://ngrok.com/docs/traffic-policy/examples/route-requests.md): Learn how to route requests to different internal endpoints using Traffic Policy based on subdomain, path, header, cookie, query parameters, IP intelligence, and more.
+- [URL Rewrites Examples](https://ngrok.com/docs/traffic-policy/examples/url-rewrites.md): Learn how to rewrite URLs using Traffic Policy to map user-friendly URLs to backend permalinks for better SEO and user experience.
+- [User Agent Filtering Example](https://ngrok.com/docs/traffic-policy/examples/user-agent-filtering.md): Learn how to filter traffic based on user agent strings using Traffic Policy to deliver tailored content or block specific bots.
+- [Agent Endpoints with Traffic Policy Quickstart](https://ngrok.com/docs/traffic-policy/getting-started/agent-endpoints.md): Learn how to set up an Agent Endpoint with a custom Traffic Policy.
+- [Cloud Endpoints with Traffic Policy Quickstart](https://ngrok.com/docs/traffic-policy/getting-started/cloud-endpoints.md): Learn how to create Cloud Endpoints with Traffic Policies using the ngrok API for programmatic endpoint management.
+- [How Traffic Policy Works](https://ngrok.com/docs/traffic-policy/how-it-works.md): Learn how ngrok's Traffic Policy engine works under the hood.
+- [Traffic Identities](https://ngrok.com/docs/traffic-policy/identities.md): Learn about Traffic Identities and Sessions for managing authenticated users via OAuth, OIDC, and SAML Traffic Policy actions.
+- [Traffic Policy Overview](https://ngrok.com/docs/traffic-policy/index.md): Learn about ngrok's Traffic Policy for authenticating requests, rate limiting traffic, rewriting URLs, and applying security controls.
+- [Traffic Policy Macros Reference](https://ngrok.com/docs/traffic-policy/macros/index.md): Reference documentation for CEL macros available in Traffic Policy for simplifying expressions and dynamic configuration.
+- [Using Vaults & Secrets with Traffic Policy](https://ngrok.com/docs/traffic-policy/secrets.md): Store sensitive data in encrypted vaults and reference them dynamically in your Traffic Policies.
+- [Action Variables](https://ngrok.com/docs/traffic-policy/variables/action.md): Reference documentation for action variables provided by Traffic Policy actions for use in subsequent rules and expressions.
+- [Connection Variables](https://ngrok.com/docs/traffic-policy/variables/connection.md): Reference documentation for connection variables in Traffic Policy including client IP, geo-location, TLS details, Kubernetes pod identity, and IP intelligence data.
+- [Endpoint Variables](https://ngrok.com/docs/traffic-policy/variables/endpoint.md): Reference documentation for endpoint variables in Traffic Policy that provide metadata about the endpoint processing the request.
+- [Variables](https://ngrok.com/docs/traffic-policy/variables/index.md): Reference documentation for Traffic Policy variables used in expressions and CEL interpolation to access traffic and connection metadata.
+- [IP Intelligence](https://ngrok.com/docs/traffic-policy/variables/ip-intel.md): Reference documentation for IP Intelligence variables in Traffic Policy for accessing IP reputation, categories, and threat data.
+- [HTTP Request Variables](https://ngrok.com/docs/traffic-policy/variables/req.md): Reference documentation for HTTP request variables in Traffic Policy including headers, method, URL, body, and user agent information.
+- [HTTP Response Variables](https://ngrok.com/docs/traffic-policy/variables/res.md): Reference documentation for HTTP response variables in Traffic Policy including status code, headers, and body content.
+- [Time Variables](https://ngrok.com/docs/traffic-policy/variables/time.md): Reference documentation for time variables in Traffic Policy for accessing current time, date, and timezone information.
+- [Agent Endpoints](https://ngrok.com/docs/universal-gateway/agent-endpoints.md): Learn about creating endpoints managed by Secure Tunnel agents.
+- [Endpoint Bindings](https://ngrok.com/docs/universal-gateway/bindings.md): Learn about ngrok's public, internal, and kubernetes endpoint bindings.
+- [How to Change a Cloud Endpoint Domain](https://ngrok.com/docs/universal-gateway/cloud-endpoints/change-domain-endpoint.md): How to use the ngrok API to change the URL of your Cloud Endpoint with zero downtime.
+- [Forwarding Traffic to and Load Balancing Internal Endpoints with Cloud Endpoints](https://ngrok.com/docs/universal-gateway/cloud-endpoints/forwarding-and-load-balancing.md): How to use ngrok Cloud Endpoints to do round-robin load balancing.
+- [Cloud Endpoints](https://ngrok.com/docs/universal-gateway/cloud-endpoints/index.md): Create and manage persistent, always-on endpoints in the cloud.
+- [Path-based Routing and Policy Decentralization with Cloud Endpoints](https://ngrok.com/docs/universal-gateway/cloud-endpoints/routing-and-policy-decentralization.md): Learn how to use Cloud Endpoints to route traffic by path and apply different Traffic Policies to each of your endpoints.
+- [How to Use A Custom Domain](https://ngrok.com/docs/universal-gateway/custom-domains.md): Learn how to use your own custom domain with your ngrok endpoints.
+- [DDoS Protection](https://ngrok.com/docs/universal-gateway/ddos-protection.md): Learn about ngrok's automatic DDoS protection features that protect your endpoints from distributed denial of service attacks.
+- [Dedicated IPs](https://ngrok.com/docs/universal-gateway/dedicated-ips.md): Configure static, dedicated IP addresses for your domains and agent connections, exclusively assigned to your account.
+- [Domains](https://ngrok.com/docs/universal-gateway/domains.md): Learn how to connect domains to your ngrok endpoints.
+- [Endpoint Pooling](https://ngrok.com/docs/universal-gateway/endpoint-pooling.md): Learn how ngrok enables you to load balance traffic to endpoints with endpoint pooling.
+- [Endpoints](https://ngrok.com/docs/universal-gateway/endpoints.md): Create and manage ngrok Endpoints to deliver and manage traffic to your services.
+- [Universal Gateway Examples](https://ngrok.com/docs/universal-gateway/examples.md): Browse examples and patterns for using ngrok's Universal Gateway including API gateway patterns, multicloud failover, and integrations.
+- [Agent-Assisted Gateway](https://ngrok.com/docs/universal-gateway/examples/agent-assisted-gateway.md): Transform your local development environment into a production-ready testbed with real authentication, traffic transformation, and public accessibility for AI-assisted development.
+- [Switch Traffic Between Blue-Green Deployments](https://ngrok.com/docs/universal-gateway/examples/blue-green-deployments.md): Test two production environments, either for monolithic or microservices architectures, side-by-side with a testing header and instant rollouts/rollbacks.
+- [Distribute Traffic Between Canary Deployments](https://ngrok.com/docs/universal-gateway/examples/canary-deployments.md): Use ngrok to validate how features or versions of your services behave by distributing production traffic randomly or via a specific header.
+- [Deploy Custom Error Pages](https://ngrok.com/docs/universal-gateway/examples/custom-error-pages.md): Instead of a blank page or HTTP error code, ensure your services automatically failover to error pages with clear details and instructions.
+- [Database Gateway](https://ngrok.com/docs/universal-gateway/examples/database-gateway.md): Securely expose databases to external clients with strict authentication, rate limiting, and query transformation to prevent runaway costs and data leaks.
+- [Access CI/CD Deploy Previews on Secure URLs](https://ngrok.com/docs/universal-gateway/examples/ephemeral-workloads.md): Expose deploy previews and CI test environments on secure, short-lived URLs with ngrok endpoints and Traffic Policy.
+- [Implement the 'Front Door' Pattern](https://ngrok.com/docs/universal-gateway/examples/front-door-pattern.md): By using Cloud Endpoint and internal Agent Endpoints together, you loosely double your gateway and services for extra flexibility.
+- [Support Multiple Authentication Methods with Traffic Policy](https://ngrok.com/docs/universal-gateway/examples/ip-restrictions-basic-auth.md): Support multiple ways for your users to connect to upstream services with a flexible OR Operator pattern.
+- [Secure Admin Dashboards](https://ngrok.com/docs/universal-gateway/examples/lock-admin-dashboards.md): Add multiple layers of protection and authentication to your dashboards to prevent threat actors from even attempting attacks.
+- [Deploy a Consistent Maintenance Message with Traffic Policy](https://ngrok.com/docs/universal-gateway/examples/maintenance-mode.md): Learn how to use Traffic Policy to immediately deploy a consistent maintenance message without needing to spin up a new backend service or change DNS records.
+- [Microservices API Gateway](https://ngrok.com/docs/universal-gateway/examples/microservices-gateway.md): Coordinate ingress traffic for microservices without a full service mesh, using ngrok to handle north-south traffic patterns with authentication and routing.
+- [Secure Your Public Minecraft Server](https://ngrok.com/docs/universal-gateway/examples/minecraft.md): Unwanted players can quickly destroy your hard work, but you can restrict access by letting in a specific set of IP addresses.
+- [Multiplex to Internal Services from a Single Domain](https://ngrok.com/docs/universal-gateway/examples/multiplex.md): Dynamically serve any number of API or web app services from a single fully qualified domain name (FQDN) without complex networking configurations.
+- [Securely Put Your Self-Hosted n8n Workflows Online](https://ngrok.com/docs/universal-gateway/examples/n8n.md): Get your n8n instance online to share with colleagues or receive webhook data with security measures designed for production usage.
+- [Offload Analytics to a Self-Hosted Service](https://ngrok.com/docs/universal-gateway/examples/offload-analytics.md): With http-request, you can capture observability data from your gateway and send it to a self-hosted analytics service securely and without instrumenting your code.
+- [Expose and Secure Your Self-Hosted Ollama API](https://ngrok.com/docs/universal-gateway/examples/ollama.md): Use ngrok to create a public endpoint for your local LLM, enabling remote access and integration, while also adding authentication and access control.
+- [Self-Hosted PaaS Alternative Gateway](https://ngrok.com/docs/universal-gateway/examples/paas-alternative-gateway.md): Get the polish of managed platforms like Heroku or Vercel while maintaining full control over your infrastructure with load balancing, security, and observability.
+- [Pre-Tier Requests by IP Address](https://ngrok.com/docs/universal-gateway/examples/pre-tier-requests.md): Use existing customer data and your service's pricing model to apply the proper rate limit to a user's IP address.
+- [Intercept and Rewrite Headers in HTTP Redirect Responses](https://ngrok.com/docs/universal-gateway/examples/rewrite-headers-redirects.md): By routing to internal services and editing headers, you can manipulate traffic in ways that allow you to seamlessly access customer networks and upstream services despite their network topology.
+- [Route API and App Traffic by User Agent](https://ngrok.com/docs/universal-gateway/examples/route-api-app-traffic-user-agent.md): Automatically enforce the right type of AuthN and route requests to the appropriate upstream service from the same hostname and path.
+- [Route to Endpoints by Geography](https://ngrok.com/docs/universal-gateway/examples/route-by-geography.md): Show users content based on their region, comply with regulations, or ensure traffic hits the nearest endpoint for the best latency.
+- [Route to Services Based on OIDC Authentication](https://ngrok.com/docs/universal-gateway/examples/route-by-oidc.md): Use the data returned by your OIDC provider to route authenticated requsets to specific upstream services.
+- [Create Secure Public Developer Environments](https://ngrok.com/docs/universal-gateway/examples/secure-developer-environments.md): Use a shared wildcard endpoint to control how your developers expose their services, route requests to the right local service, and apply centralized Traffic Policies like auth or IP restrictions.
+- [Validate Requests Against Identity Service](https://ngrok.com/docs/universal-gateway/examples/validate-requests-identity.md): Enrich your upstream service with customer details, use other authentication methods, and simplify developer experience by adding identity logic to your gateway through an HTTP request.
+- [Webhook Gateway](https://ngrok.com/docs/universal-gateway/examples/webhook-gateway.md): Centralize webhook validation and routing from third-party providers like Stripe, Twilio, and Slack to secure your integrations and eliminate repetitive implementation.
+- [Accelerate and Secure your Wordpress Installation](https://ngrok.com/docs/universal-gateway/examples/wordpress.md): ngrok improves your existing Wordpress installation by managing your TLS certificates, accelerating your blog on the global load balancer, and protecting it from DDoS attacks.
+- [Global Load Balancer](https://ngrok.com/docs/universal-gateway/global-load-balancer.md): Learn about ngrok's Global Load Balancer for distributing traffic to the nearest healthy point of presence for improved performance.
+- [HTTP/S Agent Endpoints](https://ngrok.com/docs/universal-gateway/http.md): Learn how to create and configure HTTP and HTTPS endpoints with ngrok including domain configuration, TLS, and Traffic Policies.
+- [Internal Agent Endpoints](https://ngrok.com/docs/universal-gateway/internal-endpoints.md): Learn about staging internal services and applications using internal endpoints.
+- [IP Addresses](https://ngrok.com/docs/universal-gateway/ip-addresses.md): Learn about ngrok's dynamic IP addresses, dedicated IPs, IPv6 support, and global load balancing for endpoints and agent connections.
+- [Kubernetes Agent Endpoints](https://ngrok.com/docs/universal-gateway/kubernetes-endpoints.md): Learn about Kubernetes endpoints that provide secure, private connectivity to ngrok endpoints within Kubernetes clusters.
+- [Load Balancing Between Multiple Clouds](https://ngrok.com/docs/universal-gateway/load-balancing-multiple-clouds.md): Learn how to load balance traffic between multiple clouds with ngrok.
+- [Universal Gateway Overview](https://ngrok.com/docs/universal-gateway/overview.md): Learn about ngrok's building blocks for creating API and device gateways, identity-aware proxies, site-to-site connectivity, and more.
+- [Points of Presence](https://ngrok.com/docs/universal-gateway/points-of-presence.md): Learn about ngrok's globally distributed points of presence for low-latency traffic routing to your applications worldwide.
+- [Agent Endpoint Protocols](https://ngrok.com/docs/universal-gateway/protocols.md): Learn about the four endpoint protocols supported by ngrok: HTTP/S, TCP, and TLS, and how they determine traffic processing.
+- [Public Agent Endpoints](https://ngrok.com/docs/universal-gateway/public-endpoints.md): Learn about enabling internet traffic to your services with public endpoints.
+- [Region & IP Resolution](https://ngrok.com/docs/universal-gateway/region-pinning.md): Customize where your traffic physically connects to ngrok's network, to meet data residency needs (such as keeping data within the EU).
+- [TCP Agent Endpoints](https://ngrok.com/docs/universal-gateway/tcp.md): Learn how to create and configure TCP endpoints with ngrok for routing raw TCP traffic to your applications and services.
+- [TCP Addresses](https://ngrok.com/docs/universal-gateway/tcp-addresses.md): Learn how to create and manage TCP addresses, enabling you to use fixed hostnames and ports for your TCP endpoints.
+- [TLS Agent Endpoints](https://ngrok.com/docs/universal-gateway/tls.md): Learn how to create and configure TLS endpoints with ngrok for handling encrypted TLS traffic using SNI-based routing.
+- [TLS Certificates](https://ngrok.com/docs/universal-gateway/tls-certificates.md): Learn how ngrok manages TLS certificates automatically, or how you can manually configure them yourself.
+- [TLS Termination](https://ngrok.com/docs/universal-gateway/tls-termination.md): Learn how ngrok automatically handles TLS termination for you, and enables you to manage it yourself.
+- [Using ngrok with CGNAT](https://ngrok.com/docs/using-ngrok-with/cgnat.md): Learn how to use ngrok with CGNAT networks like Starlink to expose local services without router port forwarding.
+- [Using ngrok with Docker Compose](https://ngrok.com/docs/using-ngrok-with/docker/compose.md): Learn how to put your apps and services online using ngrok with Docker Compose.
+- [Using ngrok Docker Desktop](https://ngrok.com/docs/using-ngrok-with/docker/desktop.md): Learn how to use ngrok with Docker Desktop.
+- [Using ngrok with Docker](https://ngrok.com/docs/using-ngrok-with/docker/index.md): Learn how to use ngrok with Docker to expose your local applications and services to the internet.
+- [Using ngrok with FastAPI](https://ngrok.com/docs/using-ngrok-with/fastAPI.md): Learn how to embed ngrok into FastAPI applications using the ngrok-python library for secure ingress.
+- [Using ngrok with Flask](https://ngrok.com/docs/using-ngrok-with/flask.md): Learn how to use ngrok with Flask development servers to share your local application with others using the ngrok agent or Python SDK.
+- [Using ngrok with FTP, FTPS, SFTP](https://ngrok.com/docs/using-ngrok-with/ftp.md): Learn how to use ngrok with SFTP for secure file transfers, and why FTP/FTPS are not recommended due to multiple port requirements.
+- [Using ngrok with gRPC](https://ngrok.com/docs/using-ngrok-with/gRPC.md): Learn how to use ngrok with gRPC services by specifying the HTTP/2 app protocol or using TCP endpoints.
+- [Configuring GoDaddy DNS for ngrok Reserved Domains](https://ngrok.com/docs/using-ngrok-with/godaddy.md): Step-by-step guide for configuring GoDaddy DNS records to work with ngrok reserved domains using CNAME records.
+- [Using ngrok with Google Colab](https://ngrok.com/docs/using-ngrok-with/googleColab.md): Learn how to use ngrok with Google Colab projects using the pyngrok library to expose local services.
+- [Using ngrok with Java](https://ngrok.com/docs/using-ngrok-with/java.md): Learn how to use ngrok with Java applications using the ngrok Java SDK or API client for programmatic account management.
+- [Using ngrok with Laravel](https://ngrok.com/docs/using-ngrok-with/laravel.md): Learn how to use ngrok with Laravel Valet to share your local Laravel development sites with others.
+- [Using ngrok with Minecraft](https://ngrok.com/docs/using-ngrok-with/minecraft.md): Learn how to share your Minecraft server with others using ngrok TCP endpoints, including free plan limitations and troubleshooting tips.
+- [Using ngrok with MongoDB](https://ngrok.com/docs/using-ngrok-with/mongodb.md): Expose your local MongoDB server to the internet using ngrok TCP endpoints on port 27017.
+- [Using ngrok with MySQL](https://ngrok.com/docs/using-ngrok-with/mysql.md): Connect to your local MySQL database remotely using ngrok TCP endpoints on port 3306.
+- [Using ngrok with NGINX](https://ngrok.com/docs/using-ngrok-with/nginx.md): Learn how to use ngrok with NGINX by setting the host header flag to properly route requests to your virtual hosts.
+- [Using ngrok with OpenVPN Connect](https://ngrok.com/docs/using-ngrok-with/openvpn.md): Learn how to tunnel an OpenVPN server through CGNAT using ngrok TCP endpoints on port 443.
+- [Using ngrok with an outbound proxy](https://ngrok.com/docs/using-ngrok-with/outboundProxy.md): Learn how to configure ngrok to work through HTTP or SOCKS5 outbound proxies using environment variables or configuration files.
+- [Using ngrok with PostgreSQL](https://ngrok.com/docs/using-ngrok-with/postgresql.md): Connect to your local PostgreSQL database remotely using ngrok TCP endpoints on port 5432.
+- [Using ngrok with Puppet](https://ngrok.com/docs/using-ngrok-with/puppet.md): Learn how to use the ngrok Puppet module to install and configure ngrok resources and ensure the agent process is running.
+- [Using ngrok with Redis](https://ngrok.com/docs/using-ngrok-with/redis.md): Connect to your local Redis server remotely using ngrok TCP endpoints on port 6379.
+- [Using ngrok with Real-Time Messaging Protocol (RTMP)](https://ngrok.com/docs/using-ngrok-with/rtmp.md): Learn how to share your RTMP streaming server using ngrok TCP endpoints on port 1935 for live video streaming.
+- [Using ngrok with SMTP Mail Servers](https://ngrok.com/docs/using-ngrok-with/smtp.md): Learn how to connect to your local SMTP mail server using ngrok TCP endpoints on ports 25, 465, 587, or 2525.
+- [Using ngrok with SSH](https://ngrok.com/docs/using-ngrok-with/ssh.md): Learn how to use ngrok TCP endpoints to access your local SSH server remotely on port 22 with proper port specification.
+- [Using ngrok as your MCP gateway](https://ngrok.com/docs/using-ngrok-with/using-mcp.md): Learn how to use ngrok to proxy a local server so you can build custom apps for Claude's MCP.
+- [Using ngrok with Virtual hosts (MAMP, WAMP, etc)](https://ngrok.com/docs/using-ngrok-with/virtualHosts.md): Learn how to expose virtual hosts from MAMP, WAMP, and similar web servers using ngrok's host header rewriting feature.
+- [Using ngrok with Visual Studio / IIS Express](https://ngrok.com/docs/using-ngrok-with/visualStudio.md): Learn how to use the ngrok Visual Studio extension to add ngrok support directly into your Visual Studio development workflow.
+- [Using ngrok with VSCode](https://ngrok.com/docs/using-ngrok-with/vsCode.md): Learn how to use the ngrok VSCode extension to add ngrok support directly into your VSCode development environment.
+- [Using ngrok with Websockets](https://ngrok.com/docs/using-ngrok-with/websockets.md): ngrok HTTP endpoints support WebSockets without any special configuration.
+- [What is ngrok?](https://ngrok.com/docs/what-is-ngrok.md): ngrok is a globally distributed reverse proxy that secures, protects, and accelerates your applications and network services.
+- [Why ngrok?](https://ngrok.com/docs/why-ngrok.md): Learn why ngrok provides environment independence, unified ingress, and helps you deliver production-ready applications sooner.
+
+## OpenAPI Specs
+
+- [ngrok](https://raw.githubusercontent.com/ngrok/ngrok-openapi/refs/heads/main/ngrok.yaml)
+- [openapi](https://ngrok.com/docs/api-reference/openapi.json)
+
+
+Built with [Mintlify](https://mintlify.com).
