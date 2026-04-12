@@ -1,0 +1,4 @@
+nohup: ignoring input
+🚀 Conectando a http://127.0.0.1:8000...
+
+📊 Resultado: {'status': 'error', 'message': "No se pudo descargar: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /obtener_mision/preparar_dataset.py (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x772b9b610a70>: Failed to establish a new connection: [Errno 111] Connection refused'))"}
