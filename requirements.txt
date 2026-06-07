@@ -1,4 +1,13 @@
-fpdf2>=2.7.9
-py-octokit>=0.6.0
-requests>=2.32.0
-torch>=2.2.0
+torch==2.0.0
+torchvision==0.15.0
+torchaudio==0.15.0
+wandb==0.16.0
+pydantic==2.0.0
+fastapi==0.104.0
+uvicorn==0.24.0
+python-multipart==0.0.6
+prometheus-client==0.18.0
+python-dotenv==1.0.0
+requests==2.31.0
+stripe==7.4.0
+flask==3.0.0
