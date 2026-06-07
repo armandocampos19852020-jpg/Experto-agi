@@ -1,95 +1,228 @@
-# Experto AGI
+# Experto-agi - Agentes IA para Automatización y Atención al Cliente
 
-Activación práctica de dos frentes:
+## 🚀 Automatización y Despliegue
 
-- Computación acelerada con NVIDIA (verificación y diagnóstico rápido).
-- Automatización de contenido (ebook + ideas de posts) sin credenciales hardcodeadas.
+Este proyecto implementa agentes de IA avanzados con capacidades cuánticas, automatización de procesos y APIs para monetización.
 
-## 1) Requisitos
+### 📋 Características Principales
 
-- Python 3.10+
-- Node.js 18+ (para PM2)
-- GPU NVIDIA con drivers instalados en el host
-- (Opcional) credenciales de Hotmart para probar OAuth
+- **Quantum Transformer Elite**: Modelo híbrido clásico-cuántico para procesamiento avanzado
+- **Automatización**: Scripts para procesamiento de contenido y automatización de tareas
+- **API REST**: FastAPI con soporte para pagos Stripe y autenticación
+- **Monitoreo**: Prometheus y logging centralizado
+- **Escalabilidad**: Entrenamiento distribuido con PyTorch DDP
+- **CI/CD Automatizado**: GitHub Actions para deploy automático
 
-## 2) Instalación
+### 🏗️ Estructura del Proyecto
+
+```
+Experto-agi/
+├── hybrid_monster_train_masivo.py    # Entrenamiento distribuido
+├── nim_c2_agent_api.py               # API principal
+├── stripe_flask_gateway.py           # Integración Stripe
+├── hybrid_quantum.py                 # Módulo cuántico
+├── docker-compose.yml                # Orquestación de servicios
+├── Dockerfile                        # Containerización
+├── .github/workflows/deploy.yml      # CI/CD automation
+├── deploy.sh                         # Script de despliegue
+├── requirements.txt                  # Dependencias Python
+└── prometheus.yml                    # Configuración de monitoreo
+```
+
+### 🛠️ Instalación Local
 
 ```bash
-# Instalar gestor de procesos PM2
-npm install -g pm2
+# 1. Clonar repositorio
+git clone https://github.com/armandocampos19852020-jpg/Experto-agi.git
+cd Experto-agi
 
-# Instalar dependencias de Python
-python3 -m venv .venv
-source .venv/bin/activate
+# 2. Crear entorno virtual
+python -m venv venv
+source venv/bin/activate  # En Windows: venv\Scripts\activate
+
+# 3. Instalar dependencias
 pip install -r requirements.txt
+
+# 4. Configurar variables de entorno
+cp .env.example .env
+# Editar .env con tus credenciales
 ```
 
-## 3) Verificar aceleración NVIDIA
+### 🐳 Despliegue con Docker
 
 ```bash
-bash scripts/enable_nvidia_acceleration.sh
+# Construir y ejecutar
+docker-compose up -d
+
+# Ver logs
+docker-compose logs -f web
+
+# Detener servicios
+docker-compose down
 ```
 
-Este script valida:
-
-- Si `nvidia-smi` está disponible
-- Información de GPU y versión CUDA del driver
-- Si el contenedor tiene acceso a `/dev/nvidia*`
-
-## 4) Ejecutar automatización de contenido
-
-Genera un ebook en PDF + un archivo Markdown con ideas de publicaciones:
+### 🚢 Despliegue en Producción
 
 ```bash
-python automation/content_automation.py --topic "IA para negocios" --ebook-title "Guía IA 2026"
+# Hacer script ejecutable
+chmod +x deploy.sh
+
+# Ejecutar despliegue
+ENVIRONMENT=production ./deploy.sh
 ```
 
-Salida esperada:
+### 📊 Monitoreo
 
-- `output/ebook_YYYYMMDD_HHMMSS.pdf`
-- `output/posts_YYYYMMDD_HHMMSS.md`
+- **API Metrics**: http://localhost:8000/metrics
+- **Prometheus Dashboard**: http://localhost:9090
+- **Logs**: `docker-compose logs -f web`
 
-## 5) Ejecutar cosmos_pitbull_sentry con PM2
+### 🔌 API Endpoints
 
-Exporta las variables de entorno necesarias y lanza el proceso con PM2:
+```
+POST   /v1/agents/train          - Entrenar agente
+GET    /v1/agents/{id}           - Obtener información del agente
+POST   /v1/inference/predict     - Predicción
+POST   /v1/payments/checkout     - Crear sesión Stripe
+GET    /health                   - Health check
+GET    /metrics                  - Métricas Prometheus
+```
+
+### 🧠 Quantum Training
 
 ```bash
-export TOKEN="tu_github_token"
-export REPO_OWNER="tu_usuario"
-export REPO_NAME="tu_repositorio"
-export HOOK_ID="id_del_webhook"
-export NVIDIA_API_KEY="tu_api_key"
+# Ejecutar entrenamiento distribuido
+python hybrid_monster_train_masivo.py \
+    --epochs 10 \
+    --batch_size 64 \
+    --qubits 8 \
+    --lr 0.001 \
+    --log_wandb true
+```
 
-# Iniciar el proceso con PM2
-pm2 start ecosystem.config.js
+### 📈 GitHub Actions CI/CD
 
-# Ver estado
-pm2 status
+El proyecto incluye automatización completa:
 
+1. **Test**: Ejecuta pytest en múltiples versiones de Python
+2. **Build**: Construye imagen Docker
+3. **Deploy**: Despliega automáticamente a producción en pushes a main
+
+Ver estado: https://github.com/armandocampos19852020-jpg/Experto-agi/actions
+
+### 🔐 Configuración de Secretos
+
+Para CI/CD, agregar en GitHub Settings → Secrets:
+
+- `DOCKER_USERNAME`: Usuario Docker Hub
+- `DOCKER_PASSWORD`: Password Docker Hub
+- `DOCKER_REGISTRY`: docker.io o tu registry privado
+- `DEPLOY_KEY`: SSH private key para servidor
+- `DEPLOY_SERVER`: user@host para SSH
+
+### 🌍 Despliegue en la Nube
+
+#### Opción 1: Railway
+```bash
+railway init
+railway up
+```
+
+#### Opción 2: Render
+```bash
+# Conectar repo a Render
+# Auto-deploy en cada push
+```
+
+#### Opción 3: AWS EC2
+```bash
+# Usar docker-compose en servidor Ubuntu
+chmod +x deploy.sh
+ENVIRONMENT=production ./deploy.sh
+```
+
+### 📱 Aplicación Cliente
+
+```python
+import requests
+
+BASE_URL = "http://localhost:8000"
+
+# Crear sesión de pago
+response = requests.post(
+    f"{BASE_URL}/v1/payments/checkout",
+    json={
+        "email": "cliente@example.com",
+        "product": "premium_agent",
+        "price": 99.99
+    }
+)
+
+checkout_url = response.json()["checkout_url"]
+print(f"Redirigir a: {checkout_url}")
+```
+
+### 🤝 Contribuir
+
+```bash
+git checkout -b feature/nueva-funcionalidad
+git commit -am 'Agregar nueva funcionalidad'
+git push origin feature/nueva-funcionalidad
+# Crear Pull Request
+```
+
+### 📝 Logs y Debugging
+
+```bash
 # Ver logs en tiempo real
-pm2 logs cosmos-pitbull-sentry
+docker-compose logs -f web
 
-# Guardar proceso para reinicio automático
-pm2 save
-pm2 startup
+# Logs específicos del entrenamiento
+tail -f logs/training.log
+
+# Acceder a container
+docker-compose exec web bash
 ```
 
-## 6) (Opcional) Probar conexión Hotmart
+### 💰 Monetización
 
-Define variables de entorno:
+- **Pagos Stripe**: Integrado en `stripe_flask_gateway.py`
+- **Webhooks**: Configurados para eventos de pago
+- **Planes**: Free, Pro (99/mes), Enterprise
 
+### 🆘 Troubleshooting
+
+**Error: `hybrid_quantum.py` no encontrado**
+- Archivo ya creado en este proceso
+
+**Error de Puerto en Uso**
 ```bash
-export HOTMART_CLIENT_ID="tu_client_id"
-export HOTMART_CLIENT_SECRET="tu_client_secret"
-python automation/content_automation.py --topic "IA para marketing" --connect-hotmart
+docker-compose down
+# o cambiar puerto en docker-compose.yml
 ```
 
-## 7) Nota rápida sobre Docker/devcontainer
-
-Si ejecutas fuera de este contenedor y quieres GPU en Docker:
-
+**Logs de Error en API**
 ```bash
-docker run --rm --gpus all nvidia/cuda:12.4.1-base-ubuntu22.04 nvidia-smi
+docker-compose logs web --tail=50
 ```
 
-Si ese comando falla, instala o corrige `nvidia-container-toolkit` en el host.
+### 📚 Recursos
+
+- [PyTorch Distributed](https://pytorch.org/docs/stable/distributed.html)
+- [FastAPI Docs](https://fastapi.tiangolo.com/)
+- [Docker Compose](https://docs.docker.com/compose/)
+- [Stripe API](https://stripe.com/docs/api)
+
+### 📄 Licencia
+
+Este proyecto está bajo licencia MIT.
+
+### 👤 Autor
+
+**Armando Campos**
+- GitHub: [@armandocampos19852020-jpg](https://github.com/armandocampos19852020-jpg)
+- Email: armando.campos19852020@gmail.com
+
+---
+
+**¡Tu aplicación está lista para conquistar el mundo! 🌎🚀**
